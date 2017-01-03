@@ -20,13 +20,13 @@ RUN sed -i -e 's/# en_US.UTF-8 UTF-8/en_US.UTF-8 UTF-8/' /etc/locale.gen && \
 ENV LANG en_US.UTF-8
 
 # kali installs
-RUN apt-get install -y nmap curl sqlmap wfuzz dirb exploitdb python-impacket nikto gdb gcc man whatweb python-pip python-dev rubygems rubygems-integration build-essential patch ruby-dev zlib1g-dev liblzma-dev metasploit-framework zsh emacs-nox git openssh-client tmux bpython wordlists commix libsqlite3-dev host wapiti fimap theharvester
+RUN apt-get install -y nmap curl sqlmap wfuzz dirb exploitdb python-impacket nikto gdb gcc man whatweb python-pip python-dev rubygems rubygems-integration build-essential patch ruby-dev zlib1g-dev liblzma-dev metasploit-framework zsh emacs-nox git openssh-client tmux bpython wordlists commix libsqlite3-dev host wapiti fimap theharvester python-pyx python-matplotlib python-ecdsa tcpdump scapy
 
 ## Metasploit DB init
 RUN msfdb init
 
 ## PIP installs
-RUN pip install pwntools python-nmap requests
+RUN pip install pwntools python-nmap requests httplib2
 
 ## GEM installs
 RUN gem install ruby-nmap net-http-persistent mechanize text-table sqlite3
@@ -40,6 +40,9 @@ ADD .emacs.d/ /root/.emacs.d/
 # ZSH
 RUN bash -c "$(curl -fsSL https://raw.github.com/robbyrussell/oh-my-zsh/master/tools/install.sh)"
 ADD .zshrc /root/.zshrc
+
+## Make Data Dir
+RUN mkdir -p /opt/Data/
 
 # GitHub stuff
 RUN git clone https://github.com/fuzzdb-project/fuzzdb.git /opt/fuzzdb/
