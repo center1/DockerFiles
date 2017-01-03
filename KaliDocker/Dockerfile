@@ -48,7 +48,7 @@ RUN mkdir -p /opt/Data/
 RUN git clone https://github.com/fuzzdb-project/fuzzdb.git /opt/fuzzdb/
 RUN git clone https://github.com/longld/peda.git /opt/peda/
 RUN git clone https://github.com/shawarkhanethicalhacker/BruteXSS /opt/brutexss/
-RUN git clone https://github.com/0xsauby/yasuo /opt/yaso/
+RUN git clone https://github.com/0xsauby/yasuo /opt/yasuo/
 RUN git clone https://github.com/zscproject/OWASP-ZSC /opt/owasp-zsc/
 RUN git clone https://github.com/radare/radare2 /opt/radar2/
 
