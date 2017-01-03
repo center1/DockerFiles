@@ -47,14 +47,13 @@ RUN git clone https://github.com/longld/peda.git /opt/peda/
 RUN git clone https://github.com/shawarkhanethicalhacker/BruteXSS /opt/brutexss/
 RUN git clone https://github.com/0xsauby/yasuo /opt/yaso/
 RUN git clone https://github.com/zscproject/OWASP-ZSC /opt/owasp-zsc/
-RUN git clone https://github.com/GDSSecurity/Windows-Exploit-Suggester /opt/windows-exploit-suggester/
 RUN git clone https://github.com/radare/radare2 /opt/radar2/
 
 ## Peda setup
 RUN echo "source /opt/peda/peda.py" >> /root/.gdbinit
 
 ## Radar setup
-cd /opt/radar2 ; bash sys/install.sh
+RUN cd /opt/radar2 ; bash sys/install.sh
 
 ## Download GooHost.sh
 RUN wget https://raw.githubusercontent.com/leebaird/discover/master/mods/goohost.sh -O /opt/goohost.sh
