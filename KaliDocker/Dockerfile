@@ -20,13 +20,13 @@ RUN sed -i -e 's/# en_US.UTF-8 UTF-8/en_US.UTF-8 UTF-8/' /etc/locale.gen && \
 ENV LANG en_US.UTF-8
 
 # kali installs
-RUN apt-get install -y nmap curl sqlmap wfuzz dirb exploitdb python-impacket nikto gdb gcc man whatweb python-pip python-dev rubygems rubygems-integration build-essential patch ruby-dev zlib1g-dev liblzma-dev metasploit-framework zsh emacs-nox git openssh-client tmux bpython wordlists commix libsqlite3-dev host wapiti fimap theharvester python-pyx python-matplotlib python-ecdsa tcpdump scapy libxml2-utils
+RUN apt-get install -y nmap curl sqlmap wfuzz dirb exploitdb python-impacket nikto gdb gcc man whatweb python-pip python-dev rubygems rubygems-integration build-essential patch ruby-dev zlib1g-dev liblzma-dev metasploit-framework zsh emacs-nox git openssh-client tmux bpython wordlists commix libsqlite3-dev host wapiti fimap theharvester python-pyx python-matplotlib python-ecdsa tcpdump scapy libxml2-utils sslscan
 
 ## Metasploit DB init
 RUN msfdb init
 
 ## PIP installs
-RUN pip install pwntools python-nmap requests httplib2
+RUN pip install pwntools python-nmap requests httplib2 pyip pycrypto pyopenssl
 
 ## GEM installs
 RUN gem install ruby-nmap net-http-persistent mechanize text-table sqlite3
@@ -51,12 +51,17 @@ RUN git clone https://github.com/shawarkhanethicalhacker/BruteXSS /opt/brutexss/
 RUN git clone https://github.com/0xsauby/yasuo /opt/yasuo/
 RUN git clone https://github.com/zscproject/OWASP-ZSC /opt/owasp-zsc/
 RUN git clone https://github.com/radare/radare2 /opt/radar2/
+RUN git clone https://github.com/SpiderLabs/ikeforce /opt/ikeforce/
+RUN git clone https://github.com/DanMcInerney/xsscrapy /opt/xsscrapy/
 
 ## Peda setup
 RUN echo "source /opt/peda/peda.py" >> /root/.gdbinit
 
 ## Radar setup
 RUN cd /opt/radar2 ; bash sys/install.sh
+
+## XSScrapy setup
+RUN cd /opt/xsscrapy ; pip install -r ./requirements.txt
 
 ## Download GooHost.sh
 RUN wget https://raw.githubusercontent.com/leebaird/discover/master/mods/goohost.sh -O /opt/goohost.sh
