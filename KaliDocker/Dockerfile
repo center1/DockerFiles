@@ -45,7 +45,7 @@ COPY .tmux.conf /root/.tmux.conf
 COPY .emacs.d/ /root/.emacs.d/
 
 # MSF start Script
-COPY msfstart.sh /msfstart.sh
+COPY msfstart.sh /opt/msfstart.sh
 
 # ZSH
 RUN bash -c "$(curl -fsSL https://raw.github.com/robbyrussell/oh-my-zsh/master/tools/install.sh)"
