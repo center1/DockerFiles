@@ -28,7 +28,7 @@ RUN apt-get install -y \
     openssh-client tmux bpython wordlists commix \
     libsqlite3-dev host wapiti fimap theharvester \
     python-pyx python-matplotlib python-ecdsa tcpdump scapy \
-    libxml2-utils sslscan wpscan
+    libxml2-utils sslscan wpscan msfpc
 
 ## PIP installs
 RUN pip install \
