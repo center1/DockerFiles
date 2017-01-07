@@ -24,7 +24,7 @@ RUN apt-get install -y \
     exploitdb python-impacket nikto gdb gcc \
     man whatweb python-pip python-dev rubygems \
     rubygems-integration build-essential patch ruby-dev zlib1g-dev \
-    liblzma-dev zsh emacs-nox git \
+    liblzma-dev skipfish zsh emacs-nox git \
     openssh-client tmux bpython wordlists commix \
     libsqlite3-dev host wapiti fimap theharvester \
     python-pyx python-matplotlib python-ecdsa tcpdump scapy \
