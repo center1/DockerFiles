@@ -46,6 +46,8 @@ ADD .emacs.d/ /root/.emacs.d/
 
 # ZSH
 RUN bash -c "$(curl -fsSL https://raw.github.com/robbyrussell/oh-my-zsh/master/tools/install.sh)"
+RUN git clone git clone git://github.com/zsh-users/zsh-autosuggestions /root/.oh-my-zsh/custom/plugins/
+RUN git clone git clone https://github.com/zsh-users/zsh-syntax-highlighting.git /root/.oh-my-zsh/custom/plugins/
 ADD .zshrc /root/.zshrc
 
 ## Make Data Dir

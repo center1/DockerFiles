@@ -52,7 +52,7 @@ ZSH_THEME="dallas"
 # Example format: plugins=(rails git textmate ruby lighthouse)
 # Add wisely, as too many plugins slow down shell startup.
 
-plugins=(git docker extract httpie colored-man-pages python pip pylint web-search)
+plugins=(git docker extract httpie colored-man-pages python pip pylint web-search zsh-syntax-highlighting zsh-autosuggestions)
 
 source $ZSH/oh-my-zsh.sh
 
