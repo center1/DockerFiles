@@ -24,14 +24,11 @@ RUN apt-get install -y \
     exploitdb python-impacket nikto gdb gcc \
     man whatweb python-pip python-dev rubygems \
     rubygems-integration build-essential patch ruby-dev zlib1g-dev \
-    liblzma-dev metasploit-framework zsh emacs-nox git \
+    liblzma-dev zsh emacs-nox git \
     openssh-client tmux bpython wordlists commix \
     libsqlite3-dev host wapiti fimap theharvester \
     python-pyx python-matplotlib python-ecdsa tcpdump scapy \
     libxml2-utils sslscan wpscan
-
-## Metasploit DB init
-RUN msfdb init
 
 ## PIP installs
 RUN pip install \
