@@ -6,7 +6,16 @@ Other Images i like to use
 ## Nessus
 
 ```
-docker run -d -p 8834:8834 infoslack/nessus
+nessus(){
+    docker run \
+           --rm \
+           -d \
+           -p 8834:8834 \
+           --name nessus \
+           infoslack/nessus \
+        && echo "https://localhost:8834"
+    }
+
 ```
 
 ## Faraday
