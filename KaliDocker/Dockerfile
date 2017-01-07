@@ -28,7 +28,7 @@ RUN apt-get install -y \
     openssh-client tmux bpython wordlists commix \
     libsqlite3-dev host wapiti fimap theharvester \
     python-pyx python-matplotlib python-ecdsa tcpdump scapy \
-    libxml2-utils sslscan wpscan msfpc
+    libxml2-utils sslscan wpscan msfpc metasploit-framework
 
 ## PIP installs
 RUN pip install \
@@ -39,16 +39,19 @@ RUN gem install \
     ruby-nmap net-http-persistent mechanize text-table sqlite3
 
 # TMUX dotfile
-ADD .tmux.conf /root/.tmux.conf
+COPY .tmux.conf /root/.tmux.conf
 
 # Emacs dotfile
-ADD .emacs.d/ /root/.emacs.d/
+COPY .emacs.d/ /root/.emacs.d/
+
+# MSF start Script
+COPY msfstart.sh /msfstart.sh
 
 # ZSH
 RUN bash -c "$(curl -fsSL https://raw.github.com/robbyrussell/oh-my-zsh/master/tools/install.sh)"
-RUN git clone git clone git://github.com/zsh-users/zsh-autosuggestions /root/.oh-my-zsh/custom/plugins/
-RUN git clone git clone https://github.com/zsh-users/zsh-syntax-highlighting.git /root/.oh-my-zsh/custom/plugins/
-ADD .zshrc /root/.zshrc
+RUN git clone git://github.com/zsh-users/zsh-autosuggestions /root/.oh-my-zsh/custom/plugins/
+RUN git clone https://github.com/zsh-users/zsh-syntax-highlighting.git /root/.oh-my-zsh/custom/plugins/
+COPY .zshrc /root/.zshrc
 
 ## Make Data Dir
 RUN mkdir -p /opt/Data/
