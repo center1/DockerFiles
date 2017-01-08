@@ -8,7 +8,6 @@ Other Images i like to use
 ```
 nessus(){
     docker run \
-           --rm \
            -d \
            -p 8834:8834 \
            --name nessus \
