@@ -33,7 +33,7 @@ RUN apt-get install -y \
 
 ## PIP installs
 RUN pip install \
-    pwntools python-nmap requests httplib2 pyip pycrypto pyopenssl
+    pwntools python-nmap requests httplib2 pyip pycrypto pyopenssl pyftpdlib
 
 ## GEM installs
 RUN gem install \
