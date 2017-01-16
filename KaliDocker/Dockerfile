@@ -31,7 +31,7 @@ RUN apt-get install -y \
     libsqlite3-dev host wapiti fimap theharvester \
     python-pyx python-matplotlib python-ecdsa tcpdump scapy \
     libxml2-utils sslscan wpscan msfpc metasploit-framework \
-    gobuster
+    gobuster 
 
 RUN apt-get -y autoremove
 RUN apt-get clean && rm -rf /var/lib/apt/lists/* /tmp/* /var/tmp/*
