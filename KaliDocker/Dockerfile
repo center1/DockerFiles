@@ -1,6 +1,8 @@
 # From base kali
 FROM kalilinux/kali-linux-docker
 
+MAINTAINER joethorpe6@openmailbox.org
+
 # Set working dir
 WORKDIR /root/
 
@@ -31,6 +33,9 @@ RUN apt-get install -y \
     libxml2-utils sslscan wpscan msfpc metasploit-framework \
     gobuster
 
+RUN apt-get -y autoremove
+RUN apt-get clean && rm -rf /var/lib/apt/lists/* /tmp/* /var/tmp/*
+
 ## PIP installs
 RUN pip install \
     pwntools python-nmap requests httplib2 pyip pycrypto pyopenssl pyftpdlib
@@ -38,6 +43,9 @@ RUN pip install \
 ## GEM installs
 RUN gem install \
     ruby-nmap net-http-persistent mechanize text-table sqlite3
+
+## Download GooHost.sh
+RUN wget https://raw.githubusercontent.com/leebaird/discover/master/mods/goohost.sh -O /opt/goohost.sh
 
 # TMUX dotfile
 COPY .tmux.conf /root/.tmux.conf
@@ -49,9 +57,9 @@ COPY .emacs.d/ /root/.emacs.d/
 COPY msfstart.sh /opt/msfstart.sh
 
 # ZSH
-RUN bash -c "$(curl -fsSL https://raw.github.com/robbyrussell/oh-my-zsh/master/tools/install.sh)"
-RUN git clone git://github.com/zsh-users/zsh-autosuggestions /root/.oh-my-zsh/custom/plugins/zsh-autosuggestions/
-RUN git clone https://github.com/zsh-users/zsh-syntax-highlighting.git /root/.oh-my-zsh/custom/plugins/zsh-syntax-highlighting/
+RUN bash -c "$(curl -fsSL https://raw.github.com/robbyrussell/oh-my-zsh/master/tools/install.sh)" \
+    && git clone git://github.com/zsh-users/zsh-autosuggestions /root/.oh-my-zsh/custom/plugins/zsh-autosuggestions/ \
+    && git clone https://github.com/zsh-users/zsh-syntax-highlighting.git /root/.oh-my-zsh/custom/plugins/zsh-syntax-highlighting/
 COPY .zshrc /root/.zshrc
 
 ## Make Data Dir
@@ -59,16 +67,25 @@ RUN mkdir -p /opt/Data/
 
 # GitHub stuff
 RUN git clone https://github.com/fuzzdb-project/fuzzdb.git /opt/fuzzdb/
-RUN git clone https://github.com/longld/peda.git /opt/peda/ ; echo "source /opt/peda/peda.py" >> /root/.gdbinit
 RUN git clone https://github.com/shawarkhanethicalhacker/BruteXSS /opt/brutexss/
 RUN git clone https://github.com/0xsauby/yasuo /opt/yasuo/
 RUN git clone https://github.com/zscproject/OWASP-ZSC /opt/owasp-zsc/
-RUN git clone https://github.com/radare/radare2 /opt/radar2/ ; cd /opt/radar2 ; bash sys/install.sh
 RUN git clone https://github.com/SpiderLabs/ikeforce /opt/ikeforce/
-RUN git clone https://github.com/DanMcInerney/xsscrapy /opt/xsscrapy/ ; cd /opt/xsscrapy ; pip install -r ./requirements.txt
 
-## Download GooHost.sh
-RUN wget https://raw.githubusercontent.com/leebaird/discover/master/mods/goohost.sh -O /opt/goohost.sh
+#RUN git clone https://github.com/longld/peda.git /opt/peda/ \
+#    && echo "source /opt/peda/peda.py" >> /root/.gdbinit
 
-# Ports for python http server
-EXPOSE 8000
+RUN git clone https://github.com/DanMcInerney/xsscrapy /opt/xsscrapy/ \
+    && cd /opt/xsscrapy \
+    && pip install -r ./requirements.txt
+
+RUN git clone https://github.com/pwndbg/pwndbg.git /opt/pwndbg && \
+    cd /opt/pwndbg && \
+    ./setup.sh
+
+RUN git clone https://github.com/radare/radare2 /opt/radar2/ \
+    && cd /opt/radar2 \
+    && bash sys/install.sh
+
+# set ZSH shell as entry point
+ENTRYPOINT ["/bin/zsh"]
