@@ -29,9 +29,9 @@ RUN apt-get install -y \
     liblzma-dev skipfish zsh emacs-nox git \
     openssh-client tmux bpython wordlists commix \
     libsqlite3-dev host wapiti fimap theharvester \
-    python-pyx python-matplotlib python-ecdsa tcpdump scapy \
-    libxml2-utils sslscan wpscan msfpc metasploit-framework \
-    gobuster 
+    python-pyx python-matplotlib python-ecdsa python3-pip python3-dev \
+    tcpdump scapy libxml2-utils sslscan wpscan \
+    libglib2.0-dev msfpc metasploit-framework gobuster 
 
 RUN apt-get -y autoremove
 RUN apt-get clean && rm -rf /var/lib/apt/lists/* /tmp/* /var/tmp/*
