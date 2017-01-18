@@ -9,6 +9,9 @@
   (add-to-list 'package-archives '("gnu" . "http://elpa.gnu.org/packages/")))
 (package-initialize)
 
+;; Theme
+(load-theme 'cyberpunk t)
+
 ;; Nice line numbering
 (require 'linum)
 (global-linum-mode 1)
