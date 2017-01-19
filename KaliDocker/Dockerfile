@@ -55,6 +55,7 @@ RUN apt-get update && apt-get upgrade -y && apt-get install -y \
     sslscan \
     wpscan \
     libglib2.0-dev \
+    radare2 \
     msfpc \
     metasploit-framework \
     gobuster && \
@@ -95,14 +96,11 @@ RUN git clone https://github.com/fuzzdb-project/fuzzdb.git /opt/fuzzdb/ && \
     git clone https://github.com/SpiderLabs/ikeforce /opt/ikeforce/ && \
     git clone https://github.com/DanMcInerney/xsscrapy /opt/xsscrapy/ && \
     git clone https://github.com/pwndbg/pwndbg.git /opt/pwndbg && \
-    git clone https://github.com/radare/radare2 /opt/radar2/ && \
     cd /opt/xsscrapy && \
     pip install -r ./requirements.txt && \
     cd /opt/pwndbg && \
-    ./setup.sh && \
-    cd /opt/radar2 &&\
-    bash sys/install.sh
-
+    ./setup.sh
+    
 # ZSH
 RUN bash -c "$(curl -fsSL https://raw.github.com/robbyrussell/oh-my-zsh/master/tools/install.sh)" && \
     git clone git://github.com/zsh-users/zsh-autosuggestions /root/.oh-my-zsh/custom/plugins/zsh-autosuggestions && \
