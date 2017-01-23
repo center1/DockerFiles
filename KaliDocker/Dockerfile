@@ -92,13 +92,15 @@ ENV LANG en_US.UTF-8
 RUN git clone https://github.com/fuzzdb-project/fuzzdb.git /opt/fuzzdb/ && \
     git clone https://github.com/shawarkhanethicalhacker/BruteXSS /opt/brutexss/ && \
     git clone https://github.com/0xsauby/yasuo /opt/yasuo/ && \
-    git clone https://github.com/zscproject/OWASP-ZSC /opt/owasp-zsc/ && \
+    git clone https://github.com/b3mb4m/shellsploit-framework && \
     git clone https://github.com/SpiderLabs/ikeforce /opt/ikeforce/ && \
     git clone https://github.com/DanMcInerney/xsscrapy /opt/xsscrapy/ && \
     git clone https://github.com/longld/peda.git /opt/peda && \
     cd /opt/xsscrapy && \
     pip install -r ./requirements.txt && \
-    echo "source /opt/peda/peda.py" >> /root/.gdbinit
+    echo "source /opt/peda/peda.py" >> /root/.gdbinit && \
+    cd /opt/shellsploit-framework && \
+    python ./setup.py -s install
     
 # ZSH
 RUN bash -c "$(curl -fsSL https://raw.github.com/robbyrussell/oh-my-zsh/master/tools/install.sh)" && \
