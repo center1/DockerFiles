@@ -99,7 +99,7 @@ RUN git clone https://github.com/fuzzdb-project/fuzzdb.git /opt/fuzzdb/ && \
     cd /opt/xsscrapy && \
     pip install -r ./requirements.txt && \
     echo "source /opt/peda/peda.py" >> /root/.gdbinit && \
-    cd /opt/shellsploit-framewor && \
+    cd /opt/shellsploit-framework && \
     python ./setup.py -s install
     
 # ZSH
