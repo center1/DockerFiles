@@ -92,7 +92,7 @@ ENV LANG en_US.UTF-8
 RUN git clone https://github.com/fuzzdb-project/fuzzdb.git /opt/fuzzdb/ && \
     git clone https://github.com/shawarkhanethicalhacker/BruteXSS /opt/brutexss/ && \
     git clone https://github.com/0xsauby/yasuo /opt/yasuo/ && \
-    git clone https://github.com/b3mb4m/shellsploit-framework && \
+    git clone https://github.com/b3mb4m/shellsploit-framework /opt/shellsploit-framework && \
     git clone https://github.com/SpiderLabs/ikeforce /opt/ikeforce/ && \
     git clone https://github.com/DanMcInerney/xsscrapy /opt/xsscrapy/ && \
     git clone https://github.com/longld/peda.git /opt/peda && \
