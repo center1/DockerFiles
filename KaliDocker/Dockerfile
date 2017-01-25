@@ -100,11 +100,11 @@ RUN git clone https://github.com/fuzzdb-project/fuzzdb.git /opt/fuzzdb/ && \
     git clone https://github.com/b3mb4m/shellsploit-framework /opt/shellsploit-framework && \
     git clone https://github.com/SpiderLabs/ikeforce /opt/ikeforce/ && \
     git clone https://github.com/DanMcInerney/xsscrapy /opt/xsscrapy/ && \
-    git clone https://github.com/pwndbg/pwndbg /opt/pwndng && \
+    git clone https://github.com/pwndbg/pwndbg /opt/pwndbg && \
     git clone https://github.com/JonathanSalwan/ROPgadget /opt/ropgadget && \
     cd /opt/xsscrapy && \
     pip install -r ./requirements.txt && \
-    cd /opt/pwndng && \
+    cd /opt/pwndbg && \
     ./setup.sh && \
     cd /opt/shellsploit-framework && \
     python ./setup.py -s install && \
