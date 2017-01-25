@@ -7,7 +7,7 @@ MAINTAINER joethorpe6@openmailbox.org
 WORKDIR /root/
 
 # kali installs
-RUN apt-get update && apt-get upgrade -y && apt-get install -y \
+RUN dpkg --add-architecture i386 && apt-get update && apt-get upgrade -y && apt-get install -y \
     locales \
     nmap \
     curl \
@@ -19,6 +19,10 @@ RUN apt-get update && apt-get upgrade -y && apt-get install -y \
     nikto \
     gdb \
     gcc \
+    gdb-multiarch \
+    libc6-dbg \
+    libc6-dbg:i386 \
+    lib32stdc++6 \
     man \
     whatweb \
     python-pip \
@@ -69,6 +73,7 @@ RUN apt-get update && apt-get upgrade -y && apt-get install -y \
     pycrypto \
     pyopenssl \
     pyftpdlib \
+    capstone \
     && \
     gem install \
     ruby-nmap \
@@ -95,12 +100,16 @@ RUN git clone https://github.com/fuzzdb-project/fuzzdb.git /opt/fuzzdb/ && \
     git clone https://github.com/b3mb4m/shellsploit-framework /opt/shellsploit-framework && \
     git clone https://github.com/SpiderLabs/ikeforce /opt/ikeforce/ && \
     git clone https://github.com/DanMcInerney/xsscrapy /opt/xsscrapy/ && \
-    git clone https://github.com/longld/peda.git /opt/peda && \
+    git clone https://github.com/pwndbg/pwndbg /opt/pwndng && \
+    git clone https://github.com/JonathanSalwan/ROPgadget /opt/ropgadget && \
     cd /opt/xsscrapy && \
     pip install -r ./requirements.txt && \
-    echo "source /opt/peda/peda.py" >> /root/.gdbinit && \
+    cd /opt/pwndng && \
+    ./setup.sh && \
     cd /opt/shellsploit-framework && \
-    python ./setup.py -s install
+    python ./setup.py -s install && \
+    cd /opt/ropgadget && \
+    python setup.py install
     
 # ZSH
 RUN bash -c "$(curl -fsSL https://raw.github.com/robbyrussell/oh-my-zsh/master/tools/install.sh)" && \
