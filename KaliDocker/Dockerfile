@@ -83,7 +83,7 @@ RUN dpkg --add-architecture i386 && apt-get update && apt-get upgrade -y && apt-
     text-table \
     sqlite3 \
     && wget https://raw.githubusercontent.com/leebaird/discover/master/mods/goohost.sh -O /opt/goohost.sh && \
-    mkdir -p /opt/Data/
+    mkdir -p /opt/data/
 
 # Env lang
 ## https://stackoverflow.com/questions/28405902/how-to-set-the-locale-inside-a-docker-container
