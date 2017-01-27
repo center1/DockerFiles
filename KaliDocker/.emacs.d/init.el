@@ -1,22 +1,19 @@
-;; package sources
-(require 'package) 
+;; Package sources
+(require 'package)
 (add-to-list 'package-archives
-             '("marmalade" . "http://marmalade-repo.org/packages/"))
+	     '("marmalade" . "http://marmalade-repo.org/packages/"))
 (add-to-list 'package-archives
-             '("melpa-stable" . "http://stable.melpa.org/packages/"))
+	     '("melpa-stable" . "http://stable.melpa.org/packages/"))
 (when (< emacs-major-version 24)
   ;; For important compatibility libraries like cl-lib
   (add-to-list 'package-archives '("gnu" . "http://elpa.gnu.org/packages/")))
 (package-initialize)
 
-;; Theme
-(load-theme 'cyberpunk t)
-
 ;; Nice line numbering
 (require 'linum)
 (global-linum-mode 1)
 
-;; Optional formatting to make line numbers prettier
+;; Make line numbers prettier
 (setq linum-format "%d ")
 
 ;; Other options
@@ -31,6 +28,7 @@
       `((".*" . ,temporary-file-directory)))
 (setq auto-save-file-name-transforms
       `((".*" ,temporary-file-directory t)))
+
 ;; Makes *scratch* empty.
 (setq initial-scratch-message "")
 
@@ -46,11 +44,10 @@
 
 ;; Removes *Completions* from buffer after you've opened a file.
 (add-hook 'minibuffer-exit-hook
-      '(lambda ()
-         (let ((buffer "*Completions*"))
-           (and (get-buffer buffer)
-                (kill-buffer buffer)))))
-
+	  '(lambda ()
+	     (let ((buffer "*Completions*"))
+	       (and (get-buffer buffer)
+		    (kill-buffer buffer)))))
 ;; Don't show *Buffer list* when opening multiple files at the same time.
 (setq inhibit-startup-buffer-menu t)
 
