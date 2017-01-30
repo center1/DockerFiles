@@ -13,7 +13,6 @@ RUN dpkg --add-architecture i386 && apt-get update && apt-get upgrade -y && apt-
     curl \
     sqlmap \
     wfuzz \
-    dirb \
     exploitdb \
     python-impacket \
     nikto \
@@ -46,7 +45,6 @@ RUN dpkg --add-architecture i386 && apt-get update && apt-get upgrade -y && apt-
     commix \
     libsqlite3-dev \
     host \
-    wapiti \
     fimap \
     theharvester \
     python-pyx \
@@ -74,15 +72,17 @@ RUN dpkg --add-architecture i386 && apt-get update && apt-get upgrade -y && apt-
     pycrypto \
     pyopenssl \
     pyftpdlib \
-    capstone \
-    && \
+    capstone && \
+    rm -r /root/.cache && \
     gem install \
     ruby-nmap \
     net-http-persistent \
     mechanize \
     text-table \
-    sqlite3 \
+    sqlite3 && \
+    rm -r /root/.gem && \
     && wget https://raw.githubusercontent.com/leebaird/discover/master/mods/goohost.sh -O /opt/goohost.sh && \
+    rm -r /root/.wget-hsts && \
     mkdir -p /opt/data/
 
 # Env lang
@@ -111,12 +111,14 @@ RUN git clone https://github.com/fuzzdb-project/fuzzdb.git /opt/fuzzdb/ && \
     cd /opt/shellsploit-framework && \
     python ./setup.py -s install && \
     cd /opt/ropgadget && \
-    python setup.py install
+    python setup.py install && \
+    apt-get -y autoremove && apt-get clean && rm -rf /var/lib/apt/lists/* /tmp/* /var/tmp/* 
     
 # ZSH
 RUN bash -c "$(curl -fsSL https://raw.github.com/robbyrussell/oh-my-zsh/master/tools/install.sh)" && \
     git clone git://github.com/zsh-users/zsh-autosuggestions /root/.oh-my-zsh/custom/plugins/zsh-autosuggestions && \
     git clone https://github.com/zsh-users/zsh-syntax-highlighting.git /root/.oh-my-zsh/custom/plugins/zsh-syntax-highlighting/
+COPY jt.zsh-theme /root/.oh-my-zsh/themes/jt.zsh-theme
 COPY .zshrc /root/.zshrc
 
 # TMUX dotfile
