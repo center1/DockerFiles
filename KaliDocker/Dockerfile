@@ -80,7 +80,7 @@ RUN dpkg --add-architecture i386 && apt-get update && apt-get upgrade -y && apt-
     mechanize \
     text-table \
     sqlite3 && \
-    rm -r /root/.gem && \
+    rm -r /root/.gem \
     && wget https://raw.githubusercontent.com/leebaird/discover/master/mods/goohost.sh -O /opt/goohost.sh && \
     rm -r /root/.wget-hsts && \
     mkdir -p /opt/data/
