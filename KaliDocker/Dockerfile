@@ -42,6 +42,7 @@ RUN dpkg --add-architecture i386 && apt-get update && apt-get upgrade -y && apt-
     tmux \
     bpython \
     wordlists \
+    seclists \
     commix \
     libsqlite3-dev \
     host \
