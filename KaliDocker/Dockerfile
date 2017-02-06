@@ -56,6 +56,7 @@ RUN dpkg --add-architecture i386 && apt-get update && apt-get upgrade -y && apt-
     scapy \
     libxml2-utils \
     sslscan \
+    golang \
     wpscan \
     libglib2.0-dev \
     radare2 \
@@ -86,16 +87,17 @@ RUN dpkg --add-architecture i386 && apt-get update && apt-get upgrade -y && apt-
     mkdir -p /opt/data/
 
 # Env lang
-## https://stackoverflow.com/questions/28405902/how-to-set-the-locale-inside-a-docker-container
-#RUN sed -i -e 's/# en_US.UTF-8 UTF-8/en_US.UTF-8 UTF-8/' /etc/locale.gen && \
-#    echo 'LANG="en_US.UTF-8"'>/etc/default/locale && \
-#    dpkg-reconfigure --frontend=noninteractive locales && \
-#    update-locale LANG=en_US.UTF-8
-#
-#ENV LANG en_US.UTF-8
+# https://stackoverflow.com/questions/28405902/how-to-set-the-locale-inside-a-docker-container
+RUN sed -i -e 's/# en_US.UTF-8 UTF-8/en_US.UTF-8 UTF-8/' /etc/locale.gen && \
+    echo 'LANG="en_US.UTF-8"'>/etc/default/locale && \
+    dpkg-reconfigure --frontend=noninteractive locales && \
+    update-locale LANG=en_US.UTF-8
+
+ENV LANG en_US.UTF-8
 
 # GitHub stuff
 RUN git clone https://github.com/shawarkhanethicalhacker/BruteXSS /opt/brutexss/ && \
+    git clone https://github.com/asciimoo/wuzz/ /opt/wuzz && \
     git clone https://github.com/0xsauby/yasuo /opt/yasuo/ && \
     git clone https://github.com/b3mb4m/shellsploit-framework /opt/shellsploit-framework && \
     git clone https://github.com/SpiderLabs/ikeforce /opt/ikeforce/ && \
