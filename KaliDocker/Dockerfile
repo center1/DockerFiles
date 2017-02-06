@@ -41,7 +41,6 @@ RUN dpkg --add-architecture i386 && apt-get update && apt-get upgrade -y && apt-
     openssh-client \
     tmux \
     bpython \
-    wordlists \
     seclists \
     commix \
     libsqlite3-dev \
@@ -88,16 +87,15 @@ RUN dpkg --add-architecture i386 && apt-get update && apt-get upgrade -y && apt-
 
 # Env lang
 ## https://stackoverflow.com/questions/28405902/how-to-set-the-locale-inside-a-docker-container
-RUN sed -i -e 's/# en_US.UTF-8 UTF-8/en_US.UTF-8 UTF-8/' /etc/locale.gen && \
-    echo 'LANG="en_US.UTF-8"'>/etc/default/locale && \
-    dpkg-reconfigure --frontend=noninteractive locales && \
-    update-locale LANG=en_US.UTF-8
-
-ENV LANG en_US.UTF-8
+#RUN sed -i -e 's/# en_US.UTF-8 UTF-8/en_US.UTF-8 UTF-8/' /etc/locale.gen && \
+#    echo 'LANG="en_US.UTF-8"'>/etc/default/locale && \
+#    dpkg-reconfigure --frontend=noninteractive locales && \
+#    update-locale LANG=en_US.UTF-8
+#
+#ENV LANG en_US.UTF-8
 
 # GitHub stuff
-RUN git clone https://github.com/fuzzdb-project/fuzzdb.git /opt/fuzzdb/ && \
-    git clone https://github.com/shawarkhanethicalhacker/BruteXSS /opt/brutexss/ && \
+RUN git clone https://github.com/shawarkhanethicalhacker/BruteXSS /opt/brutexss/ && \
     git clone https://github.com/0xsauby/yasuo /opt/yasuo/ && \
     git clone https://github.com/b3mb4m/shellsploit-framework /opt/shellsploit-framework && \
     git clone https://github.com/SpiderLabs/ikeforce /opt/ikeforce/ && \
@@ -105,6 +103,9 @@ RUN git clone https://github.com/fuzzdb-project/fuzzdb.git /opt/fuzzdb/ && \
     git clone https://github.com/drwetter/testssl.sh.git /opt/testssl/ && \
     git clone https://github.com/pwndbg/pwndbg /opt/pwndbg && \
     git clone https://github.com/JonathanSalwan/ROPgadget /opt/ropgadget && \
+    git clone https://github.com/radare/radare2.git /opt/radare2/ && \
+    cd /opt/radare2 && \
+    sys/install.sh && \
     cd /opt/xsscrapy && \
     pip install -r ./requirements.txt && \
     cd /opt/pwndbg && \
