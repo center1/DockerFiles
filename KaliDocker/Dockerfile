@@ -36,7 +36,7 @@ RUN dpkg --add-architecture i386 && apt-get update && apt-get upgrade -y && apt-
     liblzma-dev \
     skipfish \
     zsh \
-    emacs-nox \
+    emacs25-nox \
     git \
     openssh-client \
     tmux \
@@ -124,12 +124,6 @@ RUN bash -c "$(curl -fsSL https://raw.github.com/robbyrussell/oh-my-zsh/master/t
     git clone https://github.com/zsh-users/zsh-syntax-highlighting.git /root/.oh-my-zsh/custom/plugins/zsh-syntax-highlighting/
 COPY jt.zsh-theme /root/.oh-my-zsh/themes/jt.zsh-theme
 COPY .zshrc /root/.zshrc
-
-# TMUX dotfile
-COPY .tmux.conf /root/.tmux.conf
-
-# Emacs dotfile
-COPY .emacs.d/ /root/.emacs.d/
 
 # MSF start Script
 COPY msfstart.sh /opt/msfstart.sh
