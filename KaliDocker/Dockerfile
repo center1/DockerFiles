@@ -18,6 +18,7 @@ RUN dpkg --add-architecture i386 && apt-get update && apt-get upgrade -y && apt-
     nikto \
     gdb \
     gcc \
+    afl \
     gdb-multiarch \
     libc6-dbg \
     libc6-dbg:i386 \
