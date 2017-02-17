@@ -98,7 +98,6 @@ RUN git clone https://github.com/shawarkhanethicalhacker/BruteXSS /opt/brutexss/
     git clone https://github.com/DanMcInerney/xsscrapy /opt/xsscrapy/ && \
     git clone https://github.com/drwetter/testssl.sh.git /opt/testssl/ && \
     git clone https://github.com/pwndbg/pwndbg /opt/pwndbg && \
-    git clone https://github.com/JonathanSalwan/ROPgadget /opt/ropgadget && \
     git clone https://github.com/radare/radare2.git /opt/radare2/ && \
     cd /opt/radare2 && \
     sys/install.sh && \
@@ -108,8 +107,6 @@ RUN git clone https://github.com/shawarkhanethicalhacker/BruteXSS /opt/brutexss/
     ./setup.sh && \
     cd /opt/shellsploit-framework && \
     python ./setup.py -s install && \
-    cd /opt/ropgadget && \
-    python setup.py install && \
     apt-get -y autoremove && apt-get clean && rm -rf /var/lib/apt/lists/* /tmp/* /var/tmp/* 
     
 # ZSH
