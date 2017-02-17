@@ -6,6 +6,8 @@ MAINTAINER joethorpe6@openmailbox.org
 # Set working dir
 WORKDIR /root/
 
+ENV LC_ALL C.UTF-8
+
 # kali installs
 RUN dpkg --add-architecture i386 && apt-get update && apt-get upgrade -y && apt-get install -y \
     locales \
@@ -86,15 +88,6 @@ RUN dpkg --add-architecture i386 && apt-get update && apt-get upgrade -y && apt-
     && wget https://raw.githubusercontent.com/leebaird/discover/master/mods/goohost.sh -O /opt/goohost.sh && \
     rm -r /root/.wget-hsts && \
     mkdir -p /opt/data/
-
-# Env lang
-# https://stackoverflow.com/questions/28405902/how-to-set-the-locale-inside-a-docker-container
-RUN sed -i -e 's/# en_US.UTF-8 UTF-8/en_US.UTF-8 UTF-8/' /etc/locale.gen && \
-    echo 'LANG="en_US.UTF-8"'>/etc/default/locale && \
-    dpkg-reconfigure --frontend=noninteractive locales && \
-    update-locale LANG=en_US.UTF-8
-
-ENV LANG en_US.UTF-8
 
 # GitHub stuff
 RUN git clone https://github.com/shawarkhanethicalhacker/BruteXSS /opt/brutexss/ && \
