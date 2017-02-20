@@ -22,6 +22,8 @@ RUN dpkg --add-architecture i386 && apt-get update && apt-get upgrade -y && apt-
     gcc \
     afl \
     gdb-multiarch \
+    gcc-multilib \
+    g++-multilib \
     libc6-dbg \
     libc6-dbg:i386 \
     lib32stdc++6 \
