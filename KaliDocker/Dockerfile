@@ -94,7 +94,7 @@ RUN dpkg --add-architecture i386 && apt-get update && apt-get upgrade -y && apt-
 
 # GitHub stuff
 RUN git clone https://github.com/shawarkhanethicalhacker/BruteXSS /opt/brutexss/ && \
-    git clone https://github.com/asciimoo/wuzz/ /opt/wuzz && \
+    git clone https://github.com/rastating/wordpress-exploit-framework /opt/wordpress-exploit-framework && \
     git clone https://github.com/0xsauby/yasuo /opt/yasuo/ && \
     git clone https://github.com/b3mb4m/shellsploit-framework /opt/shellsploit-framework && \
     git clone https://github.com/SpiderLabs/ikeforce /opt/ikeforce/ && \
@@ -113,6 +113,9 @@ RUN git clone https://github.com/shawarkhanethicalhacker/BruteXSS /opt/brutexss/
     python ./setup.py -s install && \
     cd /opt/simplyemail/setup && \
     ./Setup.sh && \
+    cd /opt/wordpress-exploit-framework && \
+    apt-get -y install build-essential patch ruby-dev zlib1g-dev liblzma-dev && \
+    bundle install && \
     apt-get -y autoremove && apt-get clean && rm -rf /var/lib/apt/lists/* /tmp/* /var/tmp/* 
     
 # ZSH
