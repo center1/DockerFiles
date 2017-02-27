@@ -52,7 +52,7 @@ ZSH_THEME="jt"
 # Example format: plugins=(rails git textmate ruby lighthouse)
 # Add wisely, as too many plugins slow down shell startup.
 
-plugins=(git tmux dirhistory python pip colored-man-pages zsh-syntax-highlighting zsh-autosuggestions)
+plugins=(git tmux dirhistory python pip colored-man-pages)
 
 source $ZSH/oh-my-zsh.sh
 
