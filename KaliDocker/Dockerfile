@@ -12,6 +12,7 @@ ENV LC_ALL C.UTF-8
 RUN dpkg --add-architecture i386 && apt-get update && apt-get upgrade -y && apt-get install -y \
     locales \
     nmap \
+    masscan \
     curl \
     sqlmap \
     wfuzz \
@@ -21,6 +22,8 @@ RUN dpkg --add-architecture i386 && apt-get update && apt-get upgrade -y && apt-
     gdb \
     gcc \
     afl \
+    strace \
+    ltrace \ 
     gdb-multiarch \
     gcc-multilib \
     g++-multilib \
@@ -102,6 +105,7 @@ RUN git clone https://github.com/shawarkhanethicalhacker/BruteXSS /opt/brutexss/
     git clone https://github.com/DanMcInerney/xsscrapy /opt/xsscrapy/ && \
     git clone https://github.com/pwndbg/pwndbg /opt/pwndbg && \
     git clone https://github.com/killswitch-GUI/SimplyEmail /opt/simplyemail && \
+    git clone https://github.com/hatRiot/clusterd /opt/clusterd && \
     git clone https://github.com/radare/radare2.git /opt/radare2/ && \
     cd /opt/radare2 && \
     sys/install.sh && \
