@@ -60,7 +60,7 @@ source $ZSH/oh-my-zsh.sh
 RPROMPT=""
 
 # User configuration
-
+export TERM=screen-256color
 # export MANPATH="/usr/local/man:$MANPATH"
 
 # You may need to manually set your language environment

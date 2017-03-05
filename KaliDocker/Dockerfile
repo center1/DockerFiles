@@ -82,6 +82,7 @@ RUN dpkg --add-architecture i386 && apt-get update && apt-get upgrade -y && apt-
     pycrypto \
     pyopenssl \
     pyftpdlib \
+    r2pipe \
     capstone && \
     rm -r /root/.cache && \
     gem install \
