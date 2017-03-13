@@ -101,7 +101,6 @@ RUN dpkg --add-architecture i386 && apt-get update && apt-get upgrade -y && apt-
 RUN git clone https://github.com/shawarkhanethicalhacker/BruteXSS /opt/brutexss/ && \
     git clone https://github.com/rastating/wordpress-exploit-framework /opt/wordpress-exploit-framework && \
     git clone https://github.com/0xsauby/yasuo /opt/yasuo/ && \
-    git clone https://github.com/b3mb4m/shellsploit-framework /opt/shellsploit-framework && \
     git clone https://github.com/SpiderLabs/ikeforce /opt/ikeforce/ && \
     git clone https://github.com/portcullislabs/udp-proto-scanner /opt/udp-proto-scanner && \
     git clone https://github.com/DanMcInerney/xsscrapy /opt/xsscrapy/ && \
@@ -115,8 +114,6 @@ RUN git clone https://github.com/shawarkhanethicalhacker/BruteXSS /opt/brutexss/
     pip install -r ./requirements.txt && \
     cd /opt/pwndbg && \
     ./setup.sh && \
-    cd /opt/shellsploit-framework && \
-    python ./setup.py -s install && \
     cd /opt/simplyemail/setup && \
     ./Setup.sh && \
     cd /opt/wordpress-exploit-framework && \
