@@ -30,6 +30,7 @@ RUN dpkg --add-architecture i386 && apt-get update && apt-get upgrade -y && apt-
     libc6-dbg \
     libc6-dbg:i386 \
     lib32stdc++6 \
+    binwalk \
     man \
     aha \
     whatweb \
