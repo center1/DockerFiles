@@ -34,6 +34,7 @@ RUN dpkg --add-architecture i386 && apt-get update && apt-get upgrade -y && apt-
     man \
     aha \
     whatweb \
+    php7.0 \
     python-pip \
     python-dev \
     rubygems \
@@ -51,7 +52,6 @@ RUN dpkg --add-architecture i386 && apt-get update && apt-get upgrade -y && apt-
     tmux \
     bpython \
     seclists \
-    testssl.sh \
     commix \
     libsqlite3-dev \
     host \
@@ -69,7 +69,6 @@ RUN dpkg --add-architecture i386 && apt-get update && apt-get upgrade -y && apt-
     golang \
     wpscan \
     libglib2.0-dev \
-    radare2 \
     msfpc \
     metasploit-framework \
     gobuster && \
@@ -92,16 +91,17 @@ RUN dpkg --add-architecture i386 && apt-get update && apt-get upgrade -y && apt-
     mechanize \
     text-table \
     sqlite3 && \
-    rm -r /root/.gem \
-    && wget https://raw.githubusercontent.com/leebaird/discover/master/mods/goohost.sh -O /opt/goohost.sh && \
-    rm -r /root/.wget-hsts && \
+    rm -r /root/.gem && \
     mkdir -p /opt/data/
 
 # GitHub stuff
-RUN git clone https://github.com/shawarkhanethicalhacker/BruteXSS /opt/brutexss/ && \
+RUN git clone https://github.com/leebaird/discover /opt/discover/ && \
+    git clone https://github.com/shawarkhanethicalhacker/BruteXSS /opt/brutexss/ && \
     git clone https://github.com/rastating/wordpress-exploit-framework /opt/wordpress-exploit-framework && \
     git clone https://github.com/0xsauby/yasuo /opt/yasuo/ && \
     git clone https://github.com/SpiderLabs/ikeforce /opt/ikeforce/ && \
+    git clone https://github.com/drwetter/testssl.sh /opt/testssl && \
+    git clone https://github.com/anexia-it/winshock-test /opt/winshock-test && \
     git clone https://github.com/portcullislabs/udp-proto-scanner /opt/udp-proto-scanner && \
     git clone https://github.com/DanMcInerney/xsscrapy /opt/xsscrapy/ && \
     git clone https://github.com/pwndbg/pwndbg /opt/pwndbg && \
