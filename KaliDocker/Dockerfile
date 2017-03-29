@@ -53,6 +53,7 @@ RUN dpkg --add-architecture i386 && apt-get update && apt-get upgrade -y && apt-
     bpython \
     seclists \
     commix \
+    golismero \
     libsqlite3-dev \
     host \
     fimap \
