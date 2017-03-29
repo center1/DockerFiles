@@ -127,6 +127,7 @@ RUN bash -c "$(curl -fsSL https://raw.github.com/robbyrussell/oh-my-zsh/master/t
     mkdir -p /root/.oh-my-zsh/custom/themes/
 COPY jt.zsh-theme /root/.oh-my-zsh/custom/themes/jt.zsh-theme
 COPY .zshrc /root/.zshrc
+COPY .bashrc /root/.bashrc
 
 # MSF start Script
 COPY msfstart.sh /opt/msfstart.sh

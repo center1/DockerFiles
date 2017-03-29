@@ -3,7 +3,7 @@
 returncode="%(?..%{$fg[red]%}%{$resetcolor%})"
 
 # prompt
-PROMPT='% %{$fg[green]%}%*%{$reset_color%}[%{$fg[white]%}%n%{$reset_color%}@%{$fg[yellow]%}%m %{$reset_color%}%30<...<%~%{$reset_color%}$(git_prompt_info)]%(!.${returncode}%#%{$reset_color%}.${returncode}%%%{$reset_color%}) '
+PROMPT='% %{$fg[green]%}%*%{$reset_color%}[%{$fg[white]%}%n%{$reset_color%}@%{$fg[yellow]%}%m %{$reset_color%}%30<...<%~%{$reset_color%}$(git_prompt_info)]%{$reset_color%}${returncode}%%%{$reset_color%} '
 
 ZSH_THEME_GIT_PROMPT_PREFIX="%{$fg_bold[gray]%}(%{$fg_no_bold[yellow]%}%B"
 ZSH_THEME_GIT_PROMPT_SUFFIX="%b%{$fg_bold[gray]%})%{$reset_color%}"
