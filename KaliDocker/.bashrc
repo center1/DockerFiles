@@ -2,7 +2,7 @@
 
 # Note: PS1 and umask are already set in /etc/profile. You should not
 # need this unless you want different defaults for root.
-PS1='\e[0;32m$(date +%k:%M:%S)\e[0;00m[\u@\e[0;33m\h\e[0;00m \w]$ '
+PS1='\e[0;00m$(date +%k:%M:%S)\e[0;00m[\u@\e[0;00m\h\e[0;00m \w]$ '
 # umask 022
 
 # You may uncomment the following lines if you want `ls' to be colorized:
