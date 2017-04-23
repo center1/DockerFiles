@@ -106,6 +106,7 @@ RUN git clone https://github.com/leebaird/discover /opt/discover/ && \
     git clone https://github.com/portcullislabs/udp-proto-scanner /opt/udp-proto-scanner && \
     git clone https://github.com/DanMcInerney/xsscrapy /opt/xsscrapy/ && \
     git clone https://github.com/pwndbg/pwndbg /opt/pwndbg && \
+    git clone https://github.com/mgeeky/expdevBadChars /opt/expdevBadChars && \
     git clone https://github.com/killswitch-GUI/SimplyEmail /opt/simplyemail && \
     git clone https://github.com/hatRiot/clusterd /opt/clusterd && \
     git clone https://github.com/radare/radare2.git /opt/radare2/ && \
