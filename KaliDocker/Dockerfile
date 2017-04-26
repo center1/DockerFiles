@@ -83,6 +83,7 @@ RUN dpkg --add-architecture i386 && apt-get update && apt-get upgrade -y && apt-
     pwntools \
     python-nmap \
     requests \
+    shodan \
     httplib2 \
     pyip \
     pycrypto \
