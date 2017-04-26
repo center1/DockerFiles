@@ -47,6 +47,7 @@ RUN dpkg --add-architecture i386 && apt-get update && apt-get upgrade -y && apt-
     skipfish \
     zsh \
     emacs25-nox \
+    dnsutils \
     git \
     openssh-client \
     tmux \
