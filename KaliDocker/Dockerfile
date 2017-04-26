@@ -59,6 +59,7 @@ RUN dpkg --add-architecture i386 && apt-get update && apt-get upgrade -y && apt-
     golismero \
     libsqlite3-dev \
     host \
+    dnsrecon \
     fimap \
     theharvester \
     python-pyx \
