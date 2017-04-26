@@ -13,6 +13,7 @@ RUN dpkg --add-architecture i386 && apt-get update && apt-get upgrade -y && apt-
     locales \
     nmap \
     masscan \
+    hping3 \
     curl \
     sqlmap \
     wfuzz \
