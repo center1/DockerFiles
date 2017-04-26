@@ -63,6 +63,7 @@ RUN dpkg --add-architecture i386 && apt-get update && apt-get upgrade -y && apt-
     python-ecdsa \
     python3-pip \
     python3-dev \
+    python-faraday \
     tcpdump \
     scapy \
     libxml2-utils \
