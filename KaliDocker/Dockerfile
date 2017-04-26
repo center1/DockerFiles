@@ -33,6 +33,7 @@ RUN dpkg --add-architecture i386 && apt-get update && apt-get upgrade -y && apt-
     lib32stdc++6 \
     binwalk \
     man \
+    amap \
     aha \
     whatweb \
     php7.0 \
