@@ -115,8 +115,6 @@ RUN git clone https://github.com/shawarkhanethicalhacker/BruteXSS /opt/brutexss/
     git clone https://github.com/radare/radare2.git /opt/radare2/ && \
     cd /opt/radare2 && \
     sys/install.sh && \
-    cd /opt/xsscrapy && \
-    pip install -r ./requirements.txt && \
     cd /opt/pwndbg && \
     ./setup.sh && \
     cd /opt/simplyemail/setup && \
