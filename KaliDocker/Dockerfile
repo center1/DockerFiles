@@ -128,7 +128,10 @@ RUN git clone https://github.com/leebaird/discover /opt/discover/ && \
     apt-get -y install build-essential patch ruby-dev zlib1g-dev liblzma-dev && \
     bundle install && \
     apt-get -y autoremove && apt-get clean && rm -rf /var/lib/apt/lists/* /tmp/* /var/tmp/* 
-    
+
+# for faraday-pro
+RUN echo 'p-2.4.0' > /usr/share/python-faraday/VERSION
+
 # ZSH
 RUN bash -c "$(curl -fsSL https://raw.github.com/robbyrussell/oh-my-zsh/master/tools/install.sh)" && \
     mkdir -p /root/.oh-my-zsh/custom/themes/
