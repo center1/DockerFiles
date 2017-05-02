@@ -10,6 +10,7 @@ ENV LC_ALL C.UTF-8
 
 # kali installs
 RUN dpkg --add-architecture i386 && apt-get update && apt-get upgrade -y && apt-get install -y \
+    fortunes \
     locales \
     nmap \
     masscan \
@@ -102,15 +103,11 @@ RUN dpkg --add-architecture i386 && apt-get update && apt-get upgrade -y && apt-
     mkdir -p /opt/data/
 
 # GitHub stuff
-RUN git clone https://github.com/leebaird/discover /opt/discover/ && \
-    git clone https://github.com/shawarkhanethicalhacker/BruteXSS /opt/brutexss/ && \
+RUN git clone https://github.com/shawarkhanethicalhacker/BruteXSS /opt/brutexss/ && \
     git clone https://github.com/rastating/wordpress-exploit-framework /opt/wordpress-exploit-framework && \
     git clone https://github.com/0xsauby/yasuo /opt/yasuo/ && \
-    git clone https://github.com/SpiderLabs/ikeforce /opt/ikeforce/ && \
     git clone https://github.com/drwetter/testssl.sh /opt/testssl && \
     git clone https://github.com/anexia-it/winshock-test /opt/winshock-test && \
-    git clone https://github.com/portcullislabs/udp-proto-scanner /opt/udp-proto-scanner && \
-    git clone https://github.com/DanMcInerney/xsscrapy /opt/xsscrapy/ && \
     git clone https://github.com/pwndbg/pwndbg /opt/pwndbg && \
     git clone https://github.com/mgeeky/expdevBadChars /opt/expdevBadChars && \
     git clone https://github.com/killswitch-GUI/SimplyEmail /opt/simplyemail && \
@@ -133,11 +130,15 @@ RUN git clone https://github.com/leebaird/discover /opt/discover/ && \
 RUN echo 'p-2.4.0' > /usr/share/python-faraday/VERSION
 
 # ZSH
-RUN bash -c "$(curl -fsSL https://raw.github.com/robbyrussell/oh-my-zsh/master/tools/install.sh)" && \
-    mkdir -p /root/.oh-my-zsh/custom/themes/
-COPY jt.zsh-theme /root/.oh-my-zsh/custom/themes/jt.zsh-theme
-COPY .zshrc /root/.zshrc
-COPY .bashrc /root/.bashrc
+RUN git clone --recursive https://github.com/sorin-ionescu/prezto.git "${ZDOTDIR:-$HOME}/.zprezto" && \
+    ln -s ~/.zprezto/runcoms/zlogin ~/.zlogin && \
+    ln -s ~/.zprezto/runcoms/zlogout ~/.zlogout && \
+    ln -s ~/.zprezto/runcoms/zpreztorc ~/.zpreztorc && \
+    ln -s ~/.zprezto/runcoms/zprofile ~/.zprofile && \
+    ln -s ~/.zprezto/runcoms/zshenv ~/.zshenv && \
+    ln -s ~/.zprezto/runcoms/zshrc ~/.zshrc && \
+    echo 'export TERM=screen-256color' >> ~/.zshrc && \
+    echo 'alias em=emacs' >> ~/.zshrc
 
 # MSF start Script
 COPY msfstart.sh /opt/msfstart.sh
