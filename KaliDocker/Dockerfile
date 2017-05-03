@@ -10,7 +10,7 @@ ENV LC_ALL C.UTF-8
 
 # kali installs
 RUN dpkg --add-architecture i386 && apt-get update && apt-get upgrade -y && apt-get install -y \
-    fortunes \
+    execstack \
     locales \
     nmap \
     masscan \
