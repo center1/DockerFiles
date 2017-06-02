@@ -125,7 +125,7 @@ RUN git clone https://github.com/shawarkhanethicalhacker/BruteXSS /opt/brutexss/
     apt-get -y autoremove && apt-get clean && rm -rf /var/lib/apt/lists/* /tmp/* /var/tmp/* 
 
 # for faraday-pro
-RUN echo 'p-2.4.0' > /usr/share/python-faraday/VERSION
+RUN echo 'p-2.5.0' > /usr/share/python-faraday/VERSION
 
 # ZSH
 RUN git clone --recursive https://github.com/sorin-ionescu/prezto.git "${ZDOTDIR:-$HOME}/.zprezto" && \
@@ -139,7 +139,7 @@ RUN git clone --recursive https://github.com/sorin-ionescu/prezto.git "${ZDOTDIR
     echo "unset TMPDIR" >> ~/.zshrc && \
     echo "alias em=emacs" >> ~/.zshrc && \
     echo "alias rm=rm" >> ~/.zshrc && \
-    echo "alias gdb=gdb -quiet" >> ~/.zshrc
+    echo "alias gdb='gdb -quiet'" >> ~/.zshrc
         
 # MSF start Script
 COPY msfstart.sh /opt/msfstart.sh
