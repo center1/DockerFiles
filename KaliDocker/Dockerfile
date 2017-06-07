@@ -78,6 +78,7 @@ RUN dpkg --add-architecture i386 && apt-get update && apt-get upgrade -y && apt-
     libglib2.0-dev \
     msfpc \
     metasploit-framework \
+    dirb \
     gobuster && \
     apt-get -y autoremove && apt-get clean && rm -rf /var/lib/apt/lists/* /tmp/* /var/tmp/* && \
     pip install \
@@ -110,15 +111,12 @@ RUN git clone https://github.com/shawarkhanethicalhacker/BruteXSS /opt/brutexss/
     git clone https://github.com/anexia-it/winshock-test /opt/winshock-test && \
     git clone https://github.com/pwndbg/pwndbg /opt/pwndbg && \
     git clone https://github.com/mgeeky/expdevBadChars /opt/expdevBadChars && \
-    git clone https://github.com/killswitch-GUI/SimplyEmail /opt/simplyemail && \
     git clone https://github.com/hatRiot/clusterd /opt/clusterd && \
     git clone https://github.com/radare/radare2.git /opt/radare2/ && \
     cd /opt/radare2 && \
     sys/install.sh && \
     cd /opt/pwndbg && \
     ./setup.sh && \
-    cd /opt/simplyemail/setup && \
-    ./Setup.sh && \
     cd /opt/wordpress-exploit-framework && \
     apt-get -y install build-essential patch ruby-dev zlib1g-dev liblzma-dev && \
     bundle install && \
