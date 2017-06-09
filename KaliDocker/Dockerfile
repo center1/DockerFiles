@@ -48,6 +48,8 @@ RUN dpkg --add-architecture i386 && apt-get update && apt-get upgrade -y && apt-
     zlib1g-dev \
     liblzma-dev \
     skipfish \
+    arachni \
+    uniscan \
     zsh \
     emacs25-nox \
     dnsutils \
