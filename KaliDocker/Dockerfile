@@ -113,6 +113,7 @@ RUN git clone https://github.com/shawarkhanethicalhacker/BruteXSS /opt/brutexss/
     git clone https://github.com/anexia-it/winshock-test /opt/winshock-test && \
     git clone https://github.com/pwndbg/pwndbg /opt/pwndbg && \
     git clone https://github.com/mgeeky/expdevBadChars /opt/expdevBadChars && \
+    git clone https://github.com/vulnersCom/getsploit /opt/getsploit && \
     git clone https://github.com/hatRiot/clusterd /opt/clusterd && \
     git clone https://github.com/radare/radare2.git /opt/radare2/ && \
     cd /opt/radare2 && \
