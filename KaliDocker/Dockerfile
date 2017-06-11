@@ -115,6 +115,7 @@ RUN git clone https://github.com/shawarkhanethicalhacker/BruteXSS /opt/brutexss/
     git clone https://github.com/mgeeky/expdevBadChars /opt/expdevBadChars && \
     git clone https://github.com/vulnersCom/getsploit /opt/getsploit && \
     git clone https://github.com/hatRiot/clusterd /opt/clusterd && \
+    git clone https://github.com/internetwache/GitTools /opt/gittools && \
     git clone https://github.com/radare/radare2.git /opt/radare2/ && \
     cd /opt/radare2 && \
     sys/install.sh && \
