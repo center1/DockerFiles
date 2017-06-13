@@ -89,6 +89,7 @@ RUN dpkg --add-architecture i386 && apt-get update && apt-get upgrade -y && apt-
     requests \
     shodan \
     httplib2 \
+    urllib \
     pyip \
     pycrypto \
     pyopenssl \
