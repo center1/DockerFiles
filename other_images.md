@@ -2,71 +2,105 @@
 
 Other Images i like to use 
 
+## Metasploit
 
+``` bash
+msfconsole() {
+    docker run \
+	   --rm \
+	   -it \
+	   -p 443:443 \
+	   -p 4444:4444 \
+	   -v $HOME/.msf4:/root/.msf4/ \
+	   --name metasploit \
+	   linuxkonsult/kali-metasploit
+}
+```
 ## Nessus
 
-```
+``` bash
 nessus(){
-    docker run \
+     docker run \
            -d \
            -p 8834:8834 \
            --name nessus \
-           infoslack/nessus \
-        && echo "https://localhost:8834"
-    }
-
+	   jgamblin/nessus
+     echo -e "\nhttps://127.0.0.1:8834"
+}
 ```
+## Burp
 
-## Faraday
-
+``` bash
+burp(){
+    docker run \
+	   -v /tmp/.X11-unix/:/tmp/.X11-unix \
+	   -e DISPLAY=$DISPLAY \
+	   -p 8080:8080  \
+	   -it \
+	   raesene/burp-free
+}
 ```
- docker run --rm -it -p 5984:5984 -v $(pwd):/root/.faraday/report/workspace:rw  infobyte/faraday /root/run.sh
-```
+## Faraday 
 
-
-## Spotify
-
-```
-spotify(){
-    docker run --rm \
-           -v /etc/localtime:/etc/localtime:ro \
-           -v /tmp/.X11-unix:/tmp/.X11-unix \
-           -e DISPLAY=unix$DISPLAY \
-           --device /dev/snd:/dev/snd \
-           -v $HOME/.spotify/config:/home/spotify/.config/spotify \
-           -v $HOME/.spotify/cache:/home/spotify/spotify \
-           --name spotify \
-           jess/spotify
-    }
-```
-
-## VLC
-
-```
-vlc(){
-    docker run --rm \
-           -v /etc/localtime:/etc/localtime:ro \
-           --device /dev/snd \
-           --device /dev/dri \
-           -v /tmp/.X11-unix:/tmp/.X11-unix \
-           -e DISPLAY=unix$DISPLAY \
-           -v $HOME/Videos:/home/vlc/ \
-           --name vlc \
-           jess/vlc
+``` bash
+faraday(){
+     docker run \
+           --rm \
+           -it \
+           -p 5984:5984 \
+           -v $(pwd):/root/.faraday/report/workspace:rw \
+           infobyte/faraday \
+           /root/run.sh
     }
 ```
+## Sniper
 
-## Libre Office
+``` bash
+sniper(){
+     docker run \
+	   --rm \
+	   -ti \
+	   menzo/sn1per-docker \
+	   sniper $1
+}
+```
+## Radare2
+
+``` bash
+r2(){
+    bin=$1
+    binpath=$(realpath $1)
+     docker run \
+	   --rm \
+	   -it \
+	   --privileged \
+	   -v $HOME/.radare2rc:/home/r2/.radare2rc \
+	   -v$binpath:/tmp/$bin \
+	   radare/radare2 \
+	   r2 /tmp/$bin
+}
+```
+## LEMP stack
+
+``` bash
+lemp(){
+    docker run \
+	   --name=lemp \
+	   -dP \
+	   -v $(pwd):/var/www/html \
+	   linuxconfig/lemp-php7
+    docker ps -l
+}
 
 ```
-libreoffice(){
-    docker run --rm \
-    -v $HOME/Documents:/home/libreoffice/Documents:rw \
-       -v /tmp/.X11-unix:/tmp/.X11-unix \
-       -e uid=$(id -u) \
-       -e gid=$(id -g) \
-       -e DISPLAY=unix$DISPLAY \
-       --name libreoffice \
-       chrisdaish/libreoffice
-    }
+## Browser Bundle
+
+``` bash
+browerbundle(){
+    docker run -it --rm \
+  --volume /usr/local/bin:/target \
+  --env BROWSER_BOX_REPO=sameersbn \
+  sameersbn/browser-box:1.0.1-3 \
+  tor-browser
+}
 ```
