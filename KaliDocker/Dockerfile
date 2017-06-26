@@ -117,6 +117,7 @@ RUN git clone https://github.com/shawarkhanethicalhacker/BruteXSS /opt/brutexss/
     git clone https://github.com/vulnersCom/getsploit /opt/getsploit && \
     git clone https://github.com/hatRiot/clusterd /opt/clusterd && \
     git clone https://github.com/internetwache/GitTools /opt/gittools && \
+    git clone https://github.com/DanMcInerney/xsscrapy /opt/xsscrapy && \
     git clone https://github.com/radare/radare2.git /opt/radare2/ && \
     cd /opt/radare2 && \
     sys/install.sh && \
@@ -125,6 +126,8 @@ RUN git clone https://github.com/shawarkhanethicalhacker/BruteXSS /opt/brutexss/
     cd /opt/wordpress-exploit-framework && \
     apt-get -y install build-essential patch ruby-dev zlib1g-dev liblzma-dev && \
     bundle install && \
+    cd /opt/xsscrapy && \
+    pip install -r ./requirements.txt && \
     apt-get -y autoremove && apt-get clean && rm -rf /var/lib/apt/lists/* /tmp/* /var/tmp/* 
 
 # for faraday-pro
@@ -142,7 +145,8 @@ RUN git clone --recursive https://github.com/sorin-ionescu/prezto.git "${ZDOTDIR
     echo "unset TMPDIR" >> ~/.zshrc && \
     echo "alias em=emacs" >> ~/.zshrc && \
     echo "alias rm=rm" >> ~/.zshrc && \
-    echo "alias gdb='gdb -quiet'" >> ~/.zshrc
+    echo "alias gdb='gdb -quiet'" >> ~/.zshrc && \
+    echo "[[ $TERM == "dumb" ]] && unsetopt zle && PS1='$ '" >> ~/.zshrc
         
 # MSF start Script
 COPY msfstart.sh /opt/msfstart.sh
