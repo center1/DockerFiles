@@ -82,8 +82,9 @@ RUN dpkg --add-architecture i386 && apt-get update && apt-get upgrade -y && apt-
     metasploit-framework \
     dirb \
     gobuster && \
-    apt-get -y autoremove && apt-get clean && rm -rf /var/lib/apt/lists/* /tmp/* /var/tmp/* && \
-    pip install \
+    apt-get -y autoremove && apt-get clean && rm -rf /var/lib/apt/lists/* /tmp/* /var/tmp/*
+
+RUN pip install \
     pwntools \
     python-nmap \
     requests \
@@ -96,15 +97,17 @@ RUN dpkg --add-architecture i386 && apt-get update && apt-get upgrade -y && apt-
     pyftpdlib \
     r2pipe \
     capstone && \
-    rm -r /root/.cache && \
-    gem install \
+    rm -r /root/.cache
+
+RUN gem install \
     ruby-nmap \
     net-http-persistent \
     mechanize \
     text-table \
     sqlite3 && \
-    rm -r /root/.gem && \
-    mkdir -p /opt/data/
+    rm -r /root/.gem
+
+RUN mkdir -p /opt/data/
 
 # GitHub stuff
 RUN git clone https://github.com/shawarkhanethicalhacker/BruteXSS /opt/brutexss/ && \
@@ -146,10 +149,7 @@ RUN git clone --recursive https://github.com/sorin-ionescu/prezto.git "${ZDOTDIR
     echo "alias em=emacs" >> ~/.zshrc && \
     echo "alias rm=rm" >> ~/.zshrc && \
     echo "alias gdb='gdb -quiet'" >> ~/.zshrc && \
-    echo "[[ $TERM == "dumb" ]] && unsetopt zle && PS1='$ '" >> ~/.zshrc
-        
-# MSF start Script
-COPY msfstart.sh /opt/msfstart.sh
-
+    echo "alias msfconsole='service postgresql start; msfdb init; msfconsole'" >> $HOME/.zshrc
+    
 # set ZSH shell as entry point
 ENTRYPOINT ["/bin/zsh"]
