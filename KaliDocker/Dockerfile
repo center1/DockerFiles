@@ -121,6 +121,7 @@ RUN git clone https://github.com/shawarkhanethicalhacker/BruteXSS /opt/brutexss/
     git clone https://github.com/hatRiot/clusterd /opt/clusterd && \
     git clone https://github.com/internetwache/GitTools /opt/gittools && \
     git clone https://github.com/DanMcInerney/xsscrapy /opt/xsscrapy && \
+    git clone https://github.com/UltimateHackers/XSStrike /opt/XSStrike && \
     git clone https://github.com/radare/radare2.git /opt/radare2/ && \
     cd /opt/radare2 && \
     sys/install.sh && \
@@ -131,6 +132,8 @@ RUN git clone https://github.com/shawarkhanethicalhacker/BruteXSS /opt/brutexss/
     bundle install && \
     cd /opt/xsscrapy && \
     pip install -r ./requirements.txt && \
+    cd /opt/XSStrike && \
+    pip install -r requirements.txt && \
     apt-get -y autoremove && apt-get clean && rm -rf /var/lib/apt/lists/* /tmp/* /var/tmp/* 
 
 # for faraday-pro
