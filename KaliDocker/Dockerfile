@@ -92,6 +92,7 @@ RUN pip install \
     httplib2 \
     urllib \
     pyip \
+    truffleHog \
     pycrypto \
     pyopenssl \
     pyftpdlib \
@@ -117,8 +118,10 @@ RUN git clone https://github.com/shawarkhanethicalhacker/BruteXSS /opt/brutexss/
     git clone https://github.com/anexia-it/winshock-test /opt/winshock-test && \
     git clone https://github.com/pwndbg/pwndbg /opt/pwndbg && \
     git clone https://github.com/mgeeky/expdevBadChars /opt/expdevBadChars && \
+    git clone https://github.com/aboul3la/Sublist3r /opt/Sublist3r && \
     git clone https://github.com/vulnersCom/getsploit /opt/getsploit && \
     git clone https://github.com/hatRiot/clusterd /opt/clusterd && \
+    git clone https://github.com/epinna/tplmap /opt/tplmap && \
     git clone https://github.com/internetwache/GitTools /opt/gittools && \
     git clone https://github.com/DanMcInerney/xsscrapy /opt/xsscrapy && \
     git clone https://github.com/UltimateHackers/XSStrike /opt/XSStrike && \
@@ -134,6 +137,8 @@ RUN git clone https://github.com/shawarkhanethicalhacker/BruteXSS /opt/brutexss/
     pip install -r ./requirements.txt && \
     cd /opt/XSStrike && \
     pip install -r requirements.txt && \
+    cd /opt/Sublist3r && \
+    pip install -r ./requirements.txt && \
     apt-get -y autoremove && apt-get clean && rm -rf /var/lib/apt/lists/* /tmp/* /var/tmp/* 
 
 # for faraday-pro
@@ -152,7 +157,7 @@ RUN git clone --recursive https://github.com/sorin-ionescu/prezto.git "${ZDOTDIR
     echo "alias em=emacs" >> ~/.zshrc && \
     echo "alias rm=rm" >> ~/.zshrc && \
     echo "alias gdb='gdb -quiet'" >> ~/.zshrc && \
-    echo "alias msfconsole='service postgresql start; msfdb init; msfconsole'" >> $HOME/.zshrc
+    echo "alias msfconsole='service postgresql start; msfdb init; msfconsole -q'" >> $HOME/.zshrc
     
 # set ZSH shell as entry point
 ENTRYPOINT ["/bin/zsh"]
