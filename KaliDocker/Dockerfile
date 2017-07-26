@@ -122,7 +122,10 @@ RUN git clone https://github.com/shawarkhanethicalhacker/BruteXSS /opt/brutexss/
     git clone https://github.com/vulnersCom/getsploit /opt/getsploit && \
     git clone https://github.com/hatRiot/clusterd /opt/clusterd && \
     git clone https://github.com/epinna/tplmap /opt/tplmap && \
+    git clone https://github.com/tcstool/nosqlmap /opt/nosqlmap && \
     git clone https://github.com/internetwache/GitTools /opt/gittools && \
+    git clone https://github.com/hvqzao/liffy /opt/liffy && \
+    git clone https://github.com/Dionach/CMSmap /opt/cmsmap && \
     git clone https://github.com/DanMcInerney/xsscrapy /opt/xsscrapy && \
     git clone https://github.com/UltimateHackers/XSStrike /opt/XSStrike && \
     git clone https://github.com/radare/radare2.git /opt/radare2/ && \
@@ -137,6 +140,8 @@ RUN git clone https://github.com/shawarkhanethicalhacker/BruteXSS /opt/brutexss/
     pip install -r ./requirements.txt && \
     cd /opt/XSStrike && \
     pip install -r requirements.txt && \
+    cd /opt/nosqlmap && \
+    python ./setup.py install && \
     cd /opt/Sublist3r && \
     pip install -r ./requirements.txt && \
     apt-get -y autoremove && apt-get clean && rm -rf /var/lib/apt/lists/* /tmp/* /var/tmp/* 
