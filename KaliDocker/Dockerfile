@@ -16,6 +16,7 @@ RUN dpkg --add-architecture i386 && apt-get update && apt-get upgrade -y && apt-
     masscan \
     hping3 \
     curl \
+    traceroute \
     sqlmap \
     wfuzz \
     exploitdb \
