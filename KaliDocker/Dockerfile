@@ -66,6 +66,7 @@ RUN dpkg --add-architecture i386 && apt-get update && apt-get upgrade -y && apt-
     dnsrecon \
     fimap \
     theharvester \
+    joomscan \
     python-pyx \
     python-matplotlib \
     python-ecdsa \
