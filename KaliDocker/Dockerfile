@@ -24,7 +24,6 @@ RUN dpkg --add-architecture i386 && apt-get update && apt-get upgrade -y && apt-
     nikto \
     gdb \
     gcc \
-    afl \
     strace \
     ltrace \ 
     gdb-multiarch \
@@ -49,7 +48,6 @@ RUN dpkg --add-architecture i386 && apt-get update && apt-get upgrade -y && apt-
     zlib1g-dev \
     liblzma-dev \
     skipfish \
-    arachni \
     uniscan \
     zsh \
     emacs25-nox \
@@ -113,38 +111,17 @@ RUN gem install \
 RUN mkdir -p /opt/data/
 
 # GitHub stuff
-RUN git clone https://github.com/shawarkhanethicalhacker/BruteXSS /opt/brutexss/ && \
-    git clone https://github.com/rastating/wordpress-exploit-framework /opt/wordpress-exploit-framework && \
-    git clone https://github.com/0xsauby/yasuo /opt/yasuo/ && \
+RUN git clone https://github.com/0xsauby/yasuo /opt/yasuo/ && \
     git clone https://github.com/drwetter/testssl.sh /opt/testssl && \
     git clone https://github.com/anexia-it/winshock-test /opt/winshock-test && \
     git clone https://github.com/pwndbg/pwndbg /opt/pwndbg && \
-    git clone https://github.com/mgeeky/expdevBadChars /opt/expdevBadChars && \
-    git clone https://github.com/aboul3la/Sublist3r /opt/Sublist3r && \
     git clone https://github.com/vulnersCom/getsploit /opt/getsploit && \
     git clone https://github.com/hatRiot/clusterd /opt/clusterd && \
-    git clone https://github.com/epinna/tplmap /opt/tplmap && \
-    git clone https://github.com/tcstool/nosqlmap /opt/nosqlmap && \
-    git clone https://github.com/internetwache/GitTools /opt/gittools && \
-    git clone https://github.com/hvqzao/liffy /opt/liffy && \
     git clone https://github.com/Dionach/CMSmap /opt/cmsmap && \
     git clone https://github.com/DanMcInerney/xsscrapy /opt/xsscrapy && \
-    git clone https://github.com/UltimateHackers/XSStrike /opt/XSStrike && \
-    git clone https://github.com/radare/radare2.git /opt/radare2/ && \
-    cd /opt/radare2 && \
-    sys/install.sh && \
     cd /opt/pwndbg && \
     ./setup.sh && \
-    cd /opt/wordpress-exploit-framework && \
-    apt-get -y install build-essential patch ruby-dev zlib1g-dev liblzma-dev && \
-    bundle install && \
     cd /opt/xsscrapy && \
-    pip install -r ./requirements.txt && \
-    cd /opt/XSStrike && \
-    pip install -r requirements.txt && \
-    cd /opt/nosqlmap && \
-    python ./setup.py install && \
-    cd /opt/Sublist3r && \
     pip install -r ./requirements.txt && \
     apt-get -y autoremove && apt-get clean && rm -rf /var/lib/apt/lists/* /tmp/* /var/tmp/* 
 
@@ -164,6 +141,9 @@ RUN git clone --recursive https://github.com/sorin-ionescu/prezto.git "${ZDOTDIR
     echo "alias em=emacs" >> ~/.zshrc && \
     echo "alias rm=rm" >> ~/.zshrc && \
     echo "alias gdb='gdb -quiet'" >> ~/.zshrc && \
+    echo "alias phphttpd='php -S 0.0.0.0:8080'" >> ~/.zshrc && \
+    echo "alias pyhttpd='python -m SimpleHTTPServer 8080'" >> ~/.zshrc && \
+    echo "alias pyftpd='python -m pyftpdlib'" >> ~/.zshrc && \
     echo "alias msfconsole='service postgresql start; msfdb init; msfconsole -q'" >> $HOME/.zshrc
     
 # set ZSH shell as entry point
