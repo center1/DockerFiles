@@ -64,6 +64,21 @@ sniper(){
 	   sniper $1
 }
 ```
+## Arachni
+
+```
+arachni(){
+    docker run \
+	   -d \
+	   --name arachni \
+	   -p 9292:9292 \
+	   ahannigan/docker-arachni \
+	   bin/arachni_web -o 0.0.0.0
+    echo -e "\nhttp://127.0.0.1:9292"
+    }
+
+```
+
 ## Radare2
 
 ``` bash
