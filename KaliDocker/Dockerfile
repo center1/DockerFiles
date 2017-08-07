@@ -9,8 +9,7 @@ WORKDIR /root/
 ENV LC_ALL C.UTF-8
 
 # kali installs
-RUN dpkg --add-architecture i386 && apt-get update && apt-get upgrade -y && apt-get install -y \
-    execstack \
+RUN apt-get update && apt-get upgrade -y && apt-get install -y \
     locales \
     nmap \
     masscan \
@@ -18,21 +17,9 @@ RUN dpkg --add-architecture i386 && apt-get update && apt-get upgrade -y && apt-
     curl \
     traceroute \
     sqlmap \
-    wfuzz \
     exploitdb \
     python-impacket \
     nikto \
-    gdb \
-    gcc \
-    strace \
-    ltrace \ 
-    gdb-multiarch \
-    gcc-multilib \
-    g++-multilib \
-    libc6-dbg \
-    libc6-dbg:i386 \
-    lib32stdc++6 \
-    binwalk \
     man \
     amap \
     aha \
@@ -58,7 +45,6 @@ RUN dpkg --add-architecture i386 && apt-get update && apt-get upgrade -y && apt-
     bpython \
     seclists \
     commix \
-    golismero \
     libsqlite3-dev \
     host \
     dnsrecon \
@@ -72,16 +58,13 @@ RUN dpkg --add-architecture i386 && apt-get update && apt-get upgrade -y && apt-
     python3-dev \
     python-faraday \
     tcpdump \
-    scapy \
     libxml2-utils \
     sslscan \
-    golang \
     wpscan \
     libglib2.0-dev \
     msfpc \
     metasploit-framework \
-    dirb \
-    gobuster && \
+    dirb && \
     apt-get -y autoremove && apt-get clean && rm -rf /var/lib/apt/lists/* /tmp/* /var/tmp/*
 
 RUN pip install \
@@ -114,13 +97,10 @@ RUN mkdir -p /opt/data/
 RUN git clone https://github.com/0xsauby/yasuo /opt/yasuo/ && \
     git clone https://github.com/drwetter/testssl.sh /opt/testssl && \
     git clone https://github.com/anexia-it/winshock-test /opt/winshock-test && \
-    git clone https://github.com/pwndbg/pwndbg /opt/pwndbg && \
     git clone https://github.com/vulnersCom/getsploit /opt/getsploit && \
     git clone https://github.com/hatRiot/clusterd /opt/clusterd && \
     git clone https://github.com/Dionach/CMSmap /opt/cmsmap && \
     git clone https://github.com/DanMcInerney/xsscrapy /opt/xsscrapy && \
-    cd /opt/pwndbg && \
-    ./setup.sh && \
     cd /opt/xsscrapy && \
     pip install -r ./requirements.txt && \
     apt-get -y autoremove && apt-get clean && rm -rf /var/lib/apt/lists/* /tmp/* /var/tmp/* 
@@ -140,7 +120,6 @@ RUN git clone --recursive https://github.com/sorin-ionescu/prezto.git "${ZDOTDIR
     echo "unset TMPDIR" >> ~/.zshrc && \
     echo "alias em=emacs" >> ~/.zshrc && \
     echo "alias rm=rm" >> ~/.zshrc && \
-    echo "alias gdb='gdb -quiet'" >> ~/.zshrc && \
     echo "alias phphttpd='php -S 0.0.0.0:8080'" >> ~/.zshrc && \
     echo "alias pyhttpd='python -m SimpleHTTPServer 8080'" >> ~/.zshrc && \
     echo "alias pyftpd='python -m pyftpdlib'" >> ~/.zshrc && \

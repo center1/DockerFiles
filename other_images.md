@@ -2,9 +2,7 @@
 
 Other Images i like to use 
 
-## Metasploit
-
-``` bash
+```
 msfconsole() {
     docker run \
 	   --rm \
@@ -16,9 +14,8 @@ msfconsole() {
 	   linuxkonsult/kali-metasploit
 }
 ```
-## Nessus
 
-``` bash
+```
 nessus(){
      docker run \
            -d \
@@ -28,9 +25,8 @@ nessus(){
      echo -e "\nhttps://127.0.0.1:8834"
 }
 ```
-## Burp
 
-``` bash
+```
 burp(){
     docker run \
 	   -v /tmp/.X11-unix/:/tmp/.X11-unix \
@@ -40,9 +36,8 @@ burp(){
 	   raesene/burp-free
 }
 ```
-## Faraday 
 
-``` bash
+```
 faraday(){
      docker run \
            --rm \
@@ -53,9 +48,8 @@ faraday(){
            /root/run.sh
     }
 ```
-## Sniper
 
-``` bash
+```
 sniper(){
      docker run \
 	   --rm \
@@ -64,24 +58,8 @@ sniper(){
 	   sniper $1
 }
 ```
-## Arachni
 
 ```
-arachni(){
-    docker run \
-	   -d \
-	   --name arachni \
-	   -p 9292:9292 \
-	   ahannigan/docker-arachni \
-	   bin/arachni_web -o 0.0.0.0
-    echo -e "\nhttp://127.0.0.1:9292"
-    }
-
-```
-
-## Radare2
-
-``` bash
 r2(){
     bin=$1
     binpath=$(realpath $1)
@@ -95,27 +73,71 @@ r2(){
 	   r2 /tmp/$bin
 }
 ```
-## LEMP stack
 
-``` bash
+```
+gdb(){
+    bin=$1
+    binpath=$(realpath $1)
+     docker run \
+	   --rm \
+	   -it \
+	   --privileged \
+	   -v $binpath:/tmp/$bin \
+	   jthorpe6/pwndbg \
+	   /tmp/$bin
+}
+```
+
+```
+beef(){
+    docker run \
+           --rm \
+           -p 3000:3000 \
+           janes/beef
+   }
+```
+
+```
+golismero(){
+    docker run \
+	   --rm \
+	   jsitech/golismero
+    }
+```
+
+```
+whatweb(){
+    docker run \
+	   --rm \
+	   -it \
+	   guidelacour/whatweb \
+	   ./whatweb $1
+    }
+```
+
+```
+arachni(){
+    docker run \
+	   -d \
+	   --name arachni \
+	   -p 9292:9292 \
+	   ahannigan/docker-arachni \
+	   bin/arachni_web -o 0.0.0.0
+    echo -e "\nhttp://127.0.0.1:9292"
+}
+```
+
+```
 lemp(){
     docker run \
 	   --name=lemp \
 	   -dP \
 	   -v $(pwd):/var/www/html \
 	   linuxconfig/lemp-php7
-    docker ps -l
+    docker port lemp
 }
 
 ```
-## Browser Bundle
 
-``` bash
-browerbundle(){
-    docker run -it --rm \
-  --volume /usr/local/bin:/target \
-  --env BROWSER_BOX_REPO=sameersbn \
-  sameersbn/browser-box:1.0.1-3 \
-  tor-browser
-}
-```
+
+
