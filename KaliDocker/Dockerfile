@@ -1,8 +1,6 @@
 # From base kali
 FROM kalilinux/kali-linux-docker
 
-MAINTAINER joethorpe6@openmailbox.org
-
 # Set working dir
 WORKDIR /root/
 
