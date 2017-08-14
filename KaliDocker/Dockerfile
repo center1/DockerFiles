@@ -34,6 +34,7 @@ RUN apt-get update && apt-get upgrade -y && apt-get install -y \
     liblzma-dev \
     skipfish \
     uniscan \
+    clusterd \
     zsh \
     emacs25-nox \
     dnsutils \
@@ -96,7 +97,6 @@ RUN git clone https://github.com/0xsauby/yasuo /opt/yasuo/ && \
     git clone https://github.com/drwetter/testssl.sh /opt/testssl && \
     git clone https://github.com/anexia-it/winshock-test /opt/winshock-test && \
     git clone https://github.com/vulnersCom/getsploit /opt/getsploit && \
-    git clone https://github.com/hatRiot/clusterd /opt/clusterd && \
     git clone https://github.com/Dionach/CMSmap /opt/cmsmap && \
     git clone https://github.com/DanMcInerney/xsscrapy /opt/xsscrapy && \
     cd /opt/xsscrapy && \
