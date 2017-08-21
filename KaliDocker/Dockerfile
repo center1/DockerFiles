@@ -34,6 +34,7 @@ RUN apt-get update && apt-get upgrade -y && apt-get install -y \
     liblzma-dev \
     skipfish \
     uniscan \
+    gobuster \
     clusterd \
     zsh \
     emacs25-nox \
