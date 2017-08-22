@@ -93,6 +93,8 @@ RUN gem install \
 
 RUN mkdir -p /opt/data/
 
+RUN yes | cpan install Switch
+
 # GitHub stuff
 RUN git clone https://github.com/0xsauby/yasuo /opt/yasuo/ && \
     git clone https://github.com/drwetter/testssl.sh /opt/testssl && \
