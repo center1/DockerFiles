@@ -107,7 +107,7 @@ RUN git clone https://github.com/0xsauby/yasuo /opt/yasuo/ && \
     apt-get -y autoremove && apt-get clean && rm -rf /var/lib/apt/lists/* /tmp/* /var/tmp/* 
 
 # for faraday-pro
-RUN echo 'p-2.5.0' > /usr/share/python-faraday/VERSION
+RUN echo 'p-2.6.3' > /usr/share/python-faraday/VERSION
 
 # ZSH
 RUN git clone --recursive https://github.com/sorin-ionescu/prezto.git "${ZDOTDIR:-$HOME}/.zprezto" && \
