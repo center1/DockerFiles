@@ -17,7 +17,6 @@ RUN apt-get update && apt-get upgrade -y && apt-get install -y \
     sqlmap \
     exploitdb \
     python-impacket \
-    nikto \
     man \
     amap \
     aha \
@@ -101,8 +100,11 @@ RUN git clone https://github.com/0xsauby/yasuo /opt/yasuo/ && \
     git clone https://github.com/anexia-it/winshock-test /opt/winshock-test && \
     git clone https://github.com/vulnersCom/getsploit /opt/getsploit && \
     git clone https://github.com/Dionach/CMSmap /opt/cmsmap && \
+    git clone https://github.com/m4ll0k/Spaghetti /opt/Spaghetti && \
     git clone https://github.com/DanMcInerney/xsscrapy /opt/xsscrapy && \
     cd /opt/xsscrapy && \
+    pip install -r ./requirements.txt && \
+    cd /opt/Spaghetti && \
     pip install -r ./requirements.txt && \
     apt-get -y autoremove && apt-get clean && rm -rf /var/lib/apt/lists/* /tmp/* /var/tmp/* 
 
