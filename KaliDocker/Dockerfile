@@ -72,7 +72,6 @@ RUN pip install \
     requests \
     shodan \
     httplib2 \
-    urllib \
     pyip \
     truffleHog \
     pycrypto \
