@@ -5,12 +5,15 @@ RUN apt-get update && apt-get upgrade -y && apt-get install -y \
     zsh \
     git \
     tmux \
+    curl \
     locales \
     python-pip \
     python-dev \
     python3-pip \
-    python3-dev
+    python3-dev \
+    python-pycurl
 RUN pip install \
+    wfuzz \
     pyftpdlib \
     requests \
     Scrapy==1.1.0rc3 \
@@ -24,7 +27,11 @@ RUN pip install \
     cryptography \
     queuelib \
     dnspython \
-    tornado
+    tornado \
+    colorama \
+    mechanize \
+    prettytable \
+    progressbar
 RUN git clone https://github.com/maurosoria/dirsearch /opt/dirsearch && \
     git clone https://github.com/fuzzdb-project/fuzzdb /opt/fuzzdb && \
     git clone https://github.com/m4ll0k/Spaghetti /opt/Spaghetti && \
@@ -33,6 +40,7 @@ RUN git clone https://github.com/maurosoria/dirsearch /opt/dirsearch && \
     git clone https://github.com/DanMcInerney/xsscrapy /opt/xsscrapy && \
     git clone https://github.com/Dionach/CMSmap /opt/CMSmap && \
     git clone --depth 1 https://github.com/sqlmapproject/sqlmap.git /opt/sqlmap-dev && \
+    git clone git clone https://github.com/UltimateHackers/XSStrike/ /opt/XSStrike && \
     git clone https://github.com/swisskyrepo/PayloadsAllTheThings /opt/PayloadsAllTheThings
 RUN git clone --recursive https://github.com/sorin-ionescu/prezto.git "${ZDOTDIR:-$HOME}/.zprezto" && \
     ln -s ~/.zprezto/runcoms/zlogin ~/.zlogin && \
