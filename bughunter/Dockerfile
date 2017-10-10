@@ -29,14 +29,20 @@ RUN pip install \
     dnspython \
     tornado \
 <<<<<<< HEAD
+<<<<<<< HEAD
     bs4 \
     termcolor \
     terminaltables
 =======
+=======
+>>>>>>> 14894875090fe3cca011188094118146134d83d2
     colorama \
     mechanize \
     prettytable \
     progressbar
+<<<<<<< HEAD
+>>>>>>> 14894875090fe3cca011188094118146134d83d2
+=======
 >>>>>>> 14894875090fe3cca011188094118146134d83d2
 RUN git clone https://github.com/maurosoria/dirsearch /opt/dirsearch && \
     git clone https://github.com/fuzzdb-project/fuzzdb /opt/fuzzdb && \
@@ -47,7 +53,11 @@ RUN git clone https://github.com/maurosoria/dirsearch /opt/dirsearch && \
     git clone https://github.com/Dionach/CMSmap /opt/CMSmap && \
     git clone --depth 1 https://github.com/sqlmapproject/sqlmap.git /opt/sqlmap-dev && \
 <<<<<<< HEAD
+<<<<<<< HEAD
     git clone https://github.com/Hadesy2k/sqliv /opt/sqliv && \
+=======
+    git clone https://github.com/UltimateHackers/XSStrike/ /opt/XSStrike && \
+>>>>>>> 14894875090fe3cca011188094118146134d83d2
 =======
     git clone https://github.com/UltimateHackers/XSStrike/ /opt/XSStrike && \
 >>>>>>> 14894875090fe3cca011188094118146134d83d2
