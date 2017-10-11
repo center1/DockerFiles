@@ -1,5 +1,5 @@
 # CME Empire DeathStar
-# docker run -it --rm -p 8443:8443 -v $HOME/.tmux.conf:/root/.tmux.conf jthorpe6/instantdomainadmin
+# docker run -it --rm -p 8443:8443 -p 80:80 -p 443:443 jthorpe6/instantdomainadmin
 FROM debian
 WORKDIR /root/
 ENV LC_ALL C.UTF-8
@@ -18,10 +18,10 @@ RUN apt-get update && apt-get upgrade -y && apt-get install -y \
     python3-pip \
     python3-dev \
     python-m2crypto \
-    apt-transport-https
+    apt-transport-https && \
+    pip install crackmapexec
 RUN git clone https://github.com/EmpireProject/Empire /opt/Empire && \
     git clone https://github.com/byt3bl33d3r/DeathStar /opt/DeathStar
-RUN pip install crackmapexec
 RUN pip3 install --upgrade pip && \
     cd /opt/DeathStar && \
     pip3 install -r ./requirements.txt
@@ -39,7 +39,7 @@ RUN bash -c "cd /opt/Empire && \
     ./setup/install.sh" && \
     pip install 'pyopenssl==17.2.0' && \
     sed -i "s/ssl.PROTOCOL_TLSv1/ssl.PROTOCOL_TLS/g" /opt/Empire/empire
-EXPOSE 80 443 8443
 COPY launcher.sh /root/launcher.sh
+EXPOSE 80 443 8443
 ENTRYPOINT ["/root/launcher.sh"]
 
