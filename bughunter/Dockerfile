@@ -28,49 +28,23 @@ RUN pip install \
     queuelib \
     dnspython \
     tornado \
-<<<<<<< HEAD
-<<<<<<< HEAD
-<<<<<<< HEAD
     bs4 \
     termcolor \
     terminaltables
-=======
-=======
->>>>>>> 14894875090fe3cca011188094118146134d83d2
-=======
->>>>>>> 14894875090fe3cca011188094118146134d83d2
     colorama \
     mechanize \
     prettytable \
     progressbar
-<<<<<<< HEAD
-<<<<<<< HEAD
->>>>>>> 14894875090fe3cca011188094118146134d83d2
-=======
->>>>>>> 14894875090fe3cca011188094118146134d83d2
-=======
->>>>>>> 14894875090fe3cca011188094118146134d83d2
 RUN git clone https://github.com/maurosoria/dirsearch /opt/dirsearch && \
     git clone https://github.com/fuzzdb-project/fuzzdb /opt/fuzzdb && \
-    git clone https://github.com/m4ll0k/Spaghetti /opt/Spaghetti && \
     git clone https://github.com/aboul3la/Sublist3r /opt/Sublist3r && \
-    git clone https://github.com/swisskyrepo/Wordpresscan.git /opt/Wordpresscan && \
-    git clone https://github.com/DanMcInerney/xsscrapy /opt/xsscrapy && \
+    git clone https://github.com/m4ll0k/Spaghetti /opt/Spaghetti && \
+    git clone https://github.com/m4ll0k/WPSeku /opt/WPSeku && \
     git clone https://github.com/Dionach/CMSmap /opt/CMSmap && \
-    git clone --depth 1 https://github.com/sqlmapproject/sqlmap.git /opt/sqlmap-dev && \
-<<<<<<< HEAD
-<<<<<<< HEAD
-<<<<<<< HEAD
+    git clone https://github.com/DanMcInerney/xsscrapy /opt/xsscrapy && \
+    git clone https://github.com/UltimateHackers/XSStrike/ /opt/XSStrike && \
     git clone https://github.com/Hadesy2k/sqliv /opt/sqliv && \
-=======
-    git clone https://github.com/UltimateHackers/XSStrike/ /opt/XSStrike && \
->>>>>>> 14894875090fe3cca011188094118146134d83d2
-=======
-    git clone https://github.com/UltimateHackers/XSStrike/ /opt/XSStrike && \
->>>>>>> 14894875090fe3cca011188094118146134d83d2
-=======
-    git clone https://github.com/UltimateHackers/XSStrike/ /opt/XSStrike && \
->>>>>>> 14894875090fe3cca011188094118146134d83d2
+    git clone --depth 1 https://github.com/sqlmapproject/sqlmap.git /opt/sqlmap-dev && \
     git clone https://github.com/swisskyrepo/PayloadsAllTheThings /opt/PayloadsAllTheThings
 RUN git clone --recursive https://github.com/sorin-ionescu/prezto.git "${ZDOTDIR:-$HOME}/.zprezto" && \
     ln -s ~/.zprezto/runcoms/zlogin ~/.zlogin && \
