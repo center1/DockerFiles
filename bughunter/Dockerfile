@@ -30,7 +30,7 @@ RUN pip install \
     tornado \
     bs4 \
     termcolor \
-    terminaltables
+    terminaltables \
     colorama \
     mechanize \
     prettytable \
