@@ -26,6 +26,7 @@ RUN pip3 install --upgrade pip && \
     cd /opt/DeathStar && \
     pip3 install -r ./requirements.txt
 RUN bash -c "cd /opt/Empire && \
+    git reset --hard 2677363e508c81834b27c31ae534a5474d37eda5 && \
     wget http://archive.ubuntu.com/ubuntu/pool/main/i/icu/libicu52_52.1-3_amd64.deb && \
     wget http://ftp.debian.org/debian/pool/main/o/openssl/libssl1.0.0_1.0.1t-1+deb8u6_amd64.deb && \
     dpkg -i libicu52_52.1-3_amd64.deb && \
@@ -37,8 +38,7 @@ RUN bash -c "cd /opt/Empire && \
     apt-get update && \
     apt-get install -y powershell && \
     ./setup/install.sh" && \
-    pip install 'pyopenssl==17.2.0' && \
-    sed -i "s/ssl.PROTOCOL_TLSv1/ssl.PROTOCOL_TLS/g" /opt/Empire/empire
+    pip install 'pyopenssl==17.2.0'
 COPY launcher.sh /root/launcher.sh
 EXPOSE 80 443 8443
 ENTRYPOINT ["/root/launcher.sh"]
