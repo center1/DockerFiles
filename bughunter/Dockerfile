@@ -42,8 +42,6 @@ RUN git clone https://github.com/maurosoria/dirsearch /opt/dirsearch && \
     git clone https://github.com/m4ll0k/WPSeku /opt/WPSeku && \
     git clone https://github.com/Dionach/CMSmap /opt/CMSmap && \
     git clone https://github.com/DanMcInerney/xsscrapy /opt/xsscrapy && \
-    git clone https://github.com/UltimateHackers/XSStrike/ /opt/XSStrike && \
-    git clone https://github.com/Hadesy2k/sqliv /opt/sqliv && \
     git clone --depth 1 https://github.com/sqlmapproject/sqlmap.git /opt/sqlmap-dev && \
     git clone https://github.com/swisskyrepo/PayloadsAllTheThings /opt/PayloadsAllTheThings
 RUN git clone --recursive https://github.com/sorin-ionescu/prezto.git "${ZDOTDIR:-$HOME}/.zprezto" && \
