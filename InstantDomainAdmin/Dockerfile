@@ -19,9 +19,15 @@ RUN apt-get update && apt-get upgrade -y && apt-get install -y \
     python3-dev \
     python-m2crypto \
     apt-transport-https && \
-    pip install crackmapexec
-RUN git clone https://github.com/EmpireProject/Empire /opt/Empire && \
+    pip install crackmapexec && \
+    pip install impacket && \
+    pip install ldap3==1.4.0
+RUN git clone https://github.com/lgandx/Responder /opt/Responder && \
+    git clone --recursive https://github.com/byt3bl33d3r/CrackMapExec /opt/CrackMapExec && \
+    git clone https://github.com/EmpireProject/Empire /opt/Empire && \
     git clone https://github.com/byt3bl33d3r/DeathStar /opt/DeathStar
+RUN cd /opt/CrackMapExec && \
+    python ./setup.py install 
 RUN pip3 install --upgrade pip && \
     cd /opt/DeathStar && \
     pip3 install -r ./requirements.txt
@@ -39,7 +45,9 @@ RUN bash -c "cd /opt/Empire && \
     apt-get install -y powershell && \
     ./setup/install.sh" && \
     pip install 'pyopenssl==17.2.0'
+RUN sed -i "s/SMB = On/SMB = Off/g" /opt/Responder/Responder.conf && \
+    sed -i "s/HTTP = On/HTTP = Off/g" /opt/Responder/Responder.conf
 COPY launcher.sh /root/launcher.sh
-EXPOSE 80 443 8443
+EXPOSE 80 135 443 445 5353 8443
 ENTRYPOINT ["/root/launcher.sh"]
 
