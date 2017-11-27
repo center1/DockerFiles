@@ -1,7 +1,7 @@
 FROM debian
-WORKDIR /root/
 ENV LC_ALL C.UTF-8
 RUN apt-get update && apt-get upgrade -y && apt-get install -y \
+    sudo \
     zsh \
     git \
     tmux \
@@ -11,7 +11,14 @@ RUN apt-get update && apt-get upgrade -y && apt-get install -y \
     python-dev \
     python3-pip \
     python3-dev \
-    python-pycurl
+    python-pycurl \
+    libcurl4-openssl-dev \
+    libssl-dev
+RUN useradd -ms /bin/zsh bughunter && \
+    usermod -g sudo bughunter && \
+    echo "bughunter ALL=(ALL) NOPASSWD: ALL" >> /etc/sudoers
+WORKDIR /home/bughunter
+USER bughunter
 RUN pip install \
     wfuzz \
     pyftpdlib \
@@ -29,21 +36,21 @@ RUN pip install \
     dnspython \
     tornado \
     bs4 \
-    termcolor \
-    terminaltables \
-    colorama \
     mechanize \
     prettytable \
-    progressbar
-RUN git clone https://github.com/maurosoria/dirsearch /opt/dirsearch && \
-    git clone https://github.com/fuzzdb-project/fuzzdb /opt/fuzzdb && \
-    git clone https://github.com/aboul3la/Sublist3r /opt/Sublist3r && \
-    git clone https://github.com/m4ll0k/Spaghetti /opt/Spaghetti && \
-    git clone https://github.com/m4ll0k/WPSeku /opt/WPSeku && \
-    git clone https://github.com/Dionach/CMSmap /opt/CMSmap && \
-    git clone https://github.com/DanMcInerney/xsscrapy /opt/xsscrapy && \
-    git clone --depth 1 https://github.com/sqlmapproject/sqlmap.git /opt/sqlmap-dev && \
-    git clone https://github.com/swisskyrepo/PayloadsAllTheThings /opt/PayloadsAllTheThings
+    progressbar \
+    colorama \
+    terminaltables \
+    termcolor
+RUN git clone https://github.com/maurosoria/dirsearch ~/dirsearch && \
+    git clone https://github.com/fuzzdb-project/fuzzdb ~/fuzzdb && \
+    git clone https://github.com/aboul3la/Sublist3r ~/Sublist3r && \
+    git clone https://github.com/m4ll0k/Spaghetti ~/Spaghetti && \
+    git clone https://github.com/m4ll0k/WPSeku ~/WPSeku && \
+    git clone https://github.com/Dionach/CMSmap ~/CMSmap && \
+    git clone https://github.com/DanMcInerney/xsscrapy ~/xsscrapy && \
+    git clone --depth 1 https://github.com/sqlmapproject/sqlmap.git ~/sqlmap-dev && \
+    git clone https://github.com/swisskyrepo/PayloadsAllTheThings ~/PayloadsAllTheThings
 RUN git clone --recursive https://github.com/sorin-ionescu/prezto.git "${ZDOTDIR:-$HOME}/.zprezto" && \
     ln -s ~/.zprezto/runcoms/zlogin ~/.zlogin && \
     ln -s ~/.zprezto/runcoms/zlogout ~/.zlogout && \
@@ -54,6 +61,6 @@ RUN git clone --recursive https://github.com/sorin-ionescu/prezto.git "${ZDOTDIR
     echo "export TERM=screen-256color" >> ~/.zshrc && \
     echo "unset TMPDIR" >> ~/.zshrc && \
     echo "alias rm=rm" >> ~/.zshrc && \
-    echo "alias pyhttpd='python -m SimpleHTTPServer 8080'" >> ~/.zshrc && \
+    echo "alias pyhttpd='python -m SimpleHTTPServer'" >> ~/.zshrc && \
     echo "alias pyftpd='python -m pyftpdlib'" >> ~/.zshrc
 ENTRYPOINT ["/bin/zsh"]
