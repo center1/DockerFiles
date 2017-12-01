@@ -20,6 +20,10 @@ RUN useradd -ms /bin/zsh bughunter && \
 WORKDIR /home/bughunter
 USER bughunter
 RUN pip install \
+    httplib2==0.10.3 \
+    colorlog==2.10.0 \
+    protobuf==3.2.0rc2 \
+    google==1.9.3 \
     wfuzz \
     pyftpdlib \
     requests \
@@ -49,6 +53,7 @@ RUN git clone https://github.com/maurosoria/dirsearch ~/dirsearch && \
     git clone https://github.com/m4ll0k/WPSeku ~/WPSeku && \
     git clone https://github.com/Dionach/CMSmap ~/CMSmap && \
     git clone https://github.com/DanMcInerney/xsscrapy ~/xsscrapy && \
+    git clone https://github.com/ekultek/pybelt ~/pybelt && \
     git clone --depth 1 https://github.com/sqlmapproject/sqlmap.git ~/sqlmap-dev && \
     git clone https://github.com/swisskyrepo/PayloadsAllTheThings ~/PayloadsAllTheThings
 RUN git clone --recursive https://github.com/sorin-ionescu/prezto.git "${ZDOTDIR:-$HOME}/.zprezto" && \
