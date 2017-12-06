@@ -46,6 +46,28 @@ RUN pip install \
     colorama \
     terminaltables \
     termcolor
+RUN pip3 install \
+    boto3==1.4.8 \
+    botocore==1.8.2 \
+    certifi==2017.11.5 \
+    certstream==1.8 \
+    chardet==3.0.4 \
+    docutils==0.14 \
+    idna==2.6 \
+    jmespath==0.9.3 \
+    multidict==3.3.2 \
+    pipdeptree==0.10.1 \
+    pyaml==17.10.0 \
+    python-dateutil==2.6.1 \
+    PyYAML==3.12 \
+    requests==2.18.4 \
+    requests-file==1.4.2 \
+    s3transfer==0.1.11 \
+    six==1.11.0 \
+    termcolor==1.1.0 \
+    tldextract==2.2.0 \
+    urllib3==1.22 \
+    websocket-client==0.44.0
 RUN git clone https://github.com/maurosoria/dirsearch ~/dirsearch && \
     git clone https://github.com/fuzzdb-project/fuzzdb ~/fuzzdb && \
     git clone https://github.com/aboul3la/Sublist3r ~/Sublist3r && \
@@ -54,6 +76,7 @@ RUN git clone https://github.com/maurosoria/dirsearch ~/dirsearch && \
     git clone https://github.com/Dionach/CMSmap ~/CMSmap && \
     git clone https://github.com/DanMcInerney/xsscrapy ~/xsscrapy && \
     git clone https://github.com/ekultek/pybelt ~/pybelt && \
+    git clone https://github.com/eth0izzle/bucket-stream ~/bucket-stream && \
     git clone --depth 1 https://github.com/sqlmapproject/sqlmap.git ~/sqlmap-dev && \
     git clone https://github.com/swisskyrepo/PayloadsAllTheThings ~/PayloadsAllTheThings
 RUN git clone --recursive https://github.com/sorin-ionescu/prezto.git "${ZDOTDIR:-$HOME}/.zprezto" && \
