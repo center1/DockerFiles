@@ -49,6 +49,8 @@ RUN pip install \
     coloredlogs \
     lxml
 RUN pip3 install \
+    docopt \
+    bs4 \
     boto3==1.4.8 \
     botocore==1.8.2 \
     certifi==2017.11.5 \
@@ -80,6 +82,7 @@ RUN git clone https://github.com/maurosoria/dirsearch ~/dirsearch && \
     git clone https://github.com/ekultek/pybelt ~/pybelt && \
     git clone https://github.com/eth0izzle/bucket-stream ~/bucket-stream && \
     git clone https://github.com/1N3/BlackWidow ~/BlackWidow && \
+    git clone https://github.com/AzizDammak/DorkScan ~/DorkScan && \
     git clone --depth 1 https://github.com/sqlmapproject/sqlmap.git ~/sqlmap-dev && \
     git clone https://github.com/swisskyrepo/PayloadsAllTheThings ~/PayloadsAllTheThings
 RUN git clone --recursive https://github.com/sorin-ionescu/prezto.git "${ZDOTDIR:-$HOME}/.zprezto" && \
