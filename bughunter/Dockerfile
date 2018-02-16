@@ -81,8 +81,8 @@ RUN git clone https://github.com/maurosoria/dirsearch ~/dirsearch && \
     git clone https://github.com/DanMcInerney/xsscrapy ~/xsscrapy && \
     git clone https://github.com/ekultek/pybelt ~/pybelt && \
     git clone https://github.com/eth0izzle/bucket-stream ~/bucket-stream && \
-    git clone https://github.com/1N3/BlackWidow ~/BlackWidow && \
     git clone https://github.com/AzizDammak/DorkScan ~/DorkScan && \
+    git clone https://github.com/ropnop/xxetimes ~/xxetimes && \
     git clone --depth 1 https://github.com/sqlmapproject/sqlmap.git ~/sqlmap-dev && \
     git clone https://github.com/swisskyrepo/PayloadsAllTheThings ~/PayloadsAllTheThings
 RUN git clone --recursive https://github.com/sorin-ionescu/prezto.git "${ZDOTDIR:-$HOME}/.zprezto" && \
