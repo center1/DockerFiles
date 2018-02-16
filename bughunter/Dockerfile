@@ -2,7 +2,6 @@ FROM debian
 ENV LC_ALL C.UTF-8
 RUN apt-get update && apt-get upgrade -y && apt-get install -y \
     sudo \
-    zsh \
     git \
     tmux \
     curl \
@@ -14,8 +13,11 @@ RUN apt-get update && apt-get upgrade -y && apt-get install -y \
     python-pycurl \
     libcurl4-openssl-dev \
     libssl-dev
-RUN useradd -ms /bin/zsh bughunter && \
+RUN useradd -ms /bin/bash bughunter && \
     usermod -g sudo bughunter && \
+    echo "PS1='\w \$ >>> \[\]'" >> /home/bughunter/.bashrc && \
+    echo "alias pyhttpd='python -m SimpleHTTPServer'" >> /home/bughunter/.bashrc && \
+    echo "alias pyftpd='python -m pyftpdlib'" >> /home/bughunter/.bashrc && \
     echo "bughunter ALL=(ALL) NOPASSWD: ALL" >> /etc/sudoers
 WORKDIR /home/bughunter
 USER bughunter
@@ -72,29 +74,16 @@ RUN pip3 install \
     tldextract==2.2.0 \
     urllib3==1.22 \
     websocket-client==0.44.0
-RUN git clone https://github.com/maurosoria/dirsearch ~/dirsearch && \
-    git clone https://github.com/fuzzdb-project/fuzzdb ~/fuzzdb && \
-    git clone https://github.com/aboul3la/Sublist3r ~/Sublist3r && \
-    git clone https://github.com/m4ll0k/Spaghetti ~/Spaghetti && \
-    git clone https://github.com/m4ll0k/WPSeku ~/WPSeku && \
-    git clone https://github.com/Dionach/CMSmap ~/CMSmap && \
-    git clone https://github.com/DanMcInerney/xsscrapy ~/xsscrapy && \
-    git clone https://github.com/ekultek/pybelt ~/pybelt && \
-    git clone https://github.com/eth0izzle/bucket-stream ~/bucket-stream && \
-    git clone https://github.com/AzizDammak/DorkScan ~/DorkScan && \
-    git clone https://github.com/ropnop/xxetimes ~/xxetimes && \
-    git clone --depth 1 https://github.com/sqlmapproject/sqlmap.git ~/sqlmap-dev && \
-    git clone https://github.com/swisskyrepo/PayloadsAllTheThings ~/PayloadsAllTheThings
-RUN git clone --recursive https://github.com/sorin-ionescu/prezto.git "${ZDOTDIR:-$HOME}/.zprezto" && \
-    ln -s ~/.zprezto/runcoms/zlogin ~/.zlogin && \
-    ln -s ~/.zprezto/runcoms/zlogout ~/.zlogout && \
-    ln -s ~/.zprezto/runcoms/zpreztorc ~/.zpreztorc && \
-    ln -s ~/.zprezto/runcoms/zprofile ~/.zprofile && \
-    ln -s ~/.zprezto/runcoms/zshenv ~/.zshenv && \
-    ln -s ~/.zprezto/runcoms/zshrc ~/.zshrc && \
-    echo "export TERM=screen-256color" >> ~/.zshrc && \
-    echo "unset TMPDIR" >> ~/.zshrc && \
-    echo "alias rm=rm" >> ~/.zshrc && \
-    echo "alias pyhttpd='python -m SimpleHTTPServer'" >> ~/.zshrc && \
-    echo "alias pyftpd='python -m pyftpdlib'" >> ~/.zshrc
-ENTRYPOINT ["/bin/zsh"]
+RUN git clone https://github.com/maurosoria/dirsearch /home/bughunter/dirsearch && \
+    git clone https://github.com/fuzzdb-project/fuzzdb /home/bughunter/fuzzdb && \
+    git clone https://github.com/aboul3la/Sublist3r /home/bughunter/Sublist3r && \
+    git clone https://github.com/m4ll0k/Spaghetti /home/bughunter/Spaghetti && \
+    git clone https://github.com/m4ll0k/WPSeku /home/bughunter/WPSeku && \
+    git clone https://github.com/Dionach/CMSmap /home/bughunter/CMSmap && \
+    git clone https://github.com/DanMcInerney/xsscrapy /home/bughunter/xsscrapy && \
+    git clone https://github.com/ekultek/pybelt /home/bughunter//pybelt && \
+    git clone https://github.com/eth0izzle/bucket-stream /home/bughunter/bucket-stream && \
+    git clone https://github.com/AzizDammak/DorkScan /home/bughunter/DorkScan && \
+    git clone https://github.com/ropnop/xxetimes /home/bughunter/xxetimes && \
+    git clone --depth 1 https://github.com/sqlmapproject/sqlmap.git /home/bughunter/sqlmap-dev
+
