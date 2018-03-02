@@ -24,7 +24,7 @@ RUN apt-get update && apt-get upgrade -y && apt-get install -y \
     pip install ldap3==1.4.0
 RUN git clone https://github.com/lgandx/Responder /opt/Responder && \
     git clone --recursive https://github.com/byt3bl33d3r/CrackMapExec /opt/CrackMapExec && \
-    git clone https://github.com/EmpireProject/Empire /opt/Empire && \
+    git clone https://github.com/byt3bl33d3r/Empire /opt/Empire && \
     git clone https://github.com/byt3bl33d3r/DeathStar /opt/DeathStar
 RUN cd /opt/CrackMapExec && \
     python ./setup.py install 
