@@ -78,10 +78,8 @@ RUN git clone https://github.com/maurosoria/dirsearch /home/bughunter/dirsearch 
     git clone https://github.com/fuzzdb-project/fuzzdb /home/bughunter/fuzzdb && \
     git clone https://github.com/aboul3la/Sublist3r /home/bughunter/Sublist3r && \
     git clone https://github.com/m4ll0k/Spaghetti /home/bughunter/Spaghetti && \
-    git clone https://github.com/m4ll0k/WPSeku /home/bughunter/WPSeku && \
-    git clone https://github.com/Dionach/CMSmap /home/bughunter/CMSmap && \
     git clone https://github.com/DanMcInerney/xsscrapy /home/bughunter/xsscrapy && \
-    git clone https://github.com/ekultek/pybelt /home/bughunter//pybelt && \
+    git clone https://github.com/ekultek/pybelt /home/bughunter/pybelt && \
     git clone https://github.com/eth0izzle/bucket-stream /home/bughunter/bucket-stream && \
     git clone https://github.com/AzizDammak/DorkScan /home/bughunter/DorkScan && \
     git clone https://github.com/ropnop/xxetimes /home/bughunter/xxetimes && \
