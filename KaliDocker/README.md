@@ -1,5 +1,7 @@
 # Kali Docker Image
 
+**NOT used anymore**
+
 ```
 docker build -t jthorpe6/kali .
 ```
